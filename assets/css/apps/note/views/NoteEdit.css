@@ -1,0 +1,14 @@
+.note-edit form {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.note-edit form input {
+    margin-block: 15px;
+    /* padding: 5px; */
+    transition: background-color .4s;
+}
+
+.note-edit form input:focus {
+    /* background-color: var(--google-light-yellow); */
+}

@@ -7,7 +7,7 @@ export function NoteList({ notes, onRemoveNote }) {
                 <li key={note.id}>
                     <NotePreview note={note} />
                     <section>
-                        <button onClick={() => onRemoveNote(note.id)}><i className="fa-solid fa-square-minus"></i></button>
+                        <button onClick={() => onRemoveNote(note.id)}><i className="fa-solid fa-trash-can"></i></button>
                     </section>
                 </li>
             )}

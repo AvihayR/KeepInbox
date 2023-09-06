@@ -1,6 +1,5 @@
 import { utilService } from '../../../services/util.service.js'
 import { storageService } from '../../../services/async-storage.service.js'
-import { noteData } from './noteData.service.js'
 
 
 
@@ -106,7 +105,7 @@ function getEmptyNote() {
             backgroundColor: '#00d'
         },
         info: {
-            txt: 'Empty note'
+            txt: ''
         },
     }
 }
