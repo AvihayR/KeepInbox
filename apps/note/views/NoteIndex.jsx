@@ -1,5 +1,6 @@
 import { NoteList } from "../cmps/NoteList.jsx"
 import { noteService } from "../services/note.service.js"
+import { NoteEdit } from "./NoteEdit.jsx"
 
 const { useState, useEffect } = React
 
@@ -24,7 +25,7 @@ export function NoteIndex() {
     if (!notes) return <div>Loading...</div>
     return (
         <section className="note-index"> 
-            <div>note app</div>
+            <NoteEdit setNotes={setNotes}/>
             <NoteList notes={notes} onRemoveNote={onRemoveNote} />
         </section>
     )
