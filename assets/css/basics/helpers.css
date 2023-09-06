@@ -14,6 +14,10 @@
     align-items: center;
 }
 
+.align-start {
+    align-items: start;
+}
+
 .space-between {
     justify-content: space-between;
 }

@@ -1,1 +1,30 @@
-/*  */
+main.main-mail .compose-mail {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+}
+
+main.main-mail .compose-mail .controls {
+    background-color: var(--google-light-cyan);
+}
+
+.compose-mail .controls button.close {
+    border: none;
+    background-color: transparent;
+}
+
+.mail-mail .compose-mail input {
+    width: 100%;
+}
+
+.mail-mail .compose-mail span.new-msg {
+    font-size: var(--mail-preview-font-size);
+}
+
+.compose-mail .msg-body {
+    height: 25vh;
+    resize: none;
+}

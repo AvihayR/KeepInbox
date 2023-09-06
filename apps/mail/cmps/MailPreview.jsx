@@ -1,4 +1,5 @@
 import { mailService } from "../services/mail.service.js"
+import { utilService } from "../../../services/util.service.js"
 
 const { Fragment } = React
 const { useNavigate, useParams } = ReactRouterDOM
@@ -9,7 +10,6 @@ export function MailPreview({ mail }) {
     function readMail() {
         mail.isRead = true
         mailService.save(mail)
-        console.log(mail)
     }
 
     return (
@@ -19,6 +19,7 @@ export function MailPreview({ mail }) {
         }}>
             <span className="mail-from">{mail.from}</span>
             <span className="mail-subject">{mail.subject}</span>
+            <span className="mail-time">{utilService.formatDate(mail.sentAt)}</span>
         </li>
     )
 }

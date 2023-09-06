@@ -5,7 +5,8 @@ import { utilService } from '../../../services/util.service.js'
 export const mailService = {
     query,
     get,
-    save
+    save,
+    createMail
 }
 
 const MAIL_KEY = 'mailDB'
@@ -56,6 +57,19 @@ function _createMails() {
         mails = demoData
         utilService.saveToStorage(MAIL_KEY, mails)
     }
+}
+
+function createMail({ subject, body, to }) {
+    const newEmail = {
+        subject,
+        body,
+        isRead: false,
+        sentAt: Date.now(),
+        removedAt: null,
+        from: loggedInUser.email,
+        to
+    }
+    return save(newEmail)
 }
 
 function get(mailId) {
