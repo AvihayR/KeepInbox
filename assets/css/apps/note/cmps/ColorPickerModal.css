@@ -1,0 +1,31 @@
+.color-picker-modal {
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    z-index: 999;
+}
+
+.color-picker-modal button {
+    border: none;
+    background: none;
+    width: 25px;
+    height: 25px;
+    place-self: center;
+    margin-inline-end: 5px;
+    cursor: pointer;
+}
+
+.color-options {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.color-option {
+    width: 25px;
+    height: 25px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 50%;
+}

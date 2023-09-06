@@ -27,3 +27,7 @@ img {
 ul {
     all: unset;
 }
+
+button {
+    cursor: pointer;
+}

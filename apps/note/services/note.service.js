@@ -52,7 +52,11 @@ var demoNotes = [
                 { txt: 'Driving license', doneAt: null },
                 { txt: 'Coding power', doneAt: 187111111 }
             ]
+        },
+        style: {
+            backgroundColor: '#232323'
         }
+        
     }
 ]
 

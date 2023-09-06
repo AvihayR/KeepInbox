@@ -4,12 +4,14 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 15px;
-  }
-  
-  .note-list li {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      align-items: center;
-      background-color: var(--google-light-yellow);
-  }
+}
+
+.note-list li {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+    background-color: var(--google-light-yellow);
+    transition: background-color .6s;
+}
