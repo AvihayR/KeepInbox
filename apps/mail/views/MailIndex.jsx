@@ -17,7 +17,7 @@ export function MailIndex() {
     if (!mails) return 'Loading...'
     return (
         <main className="main-mail flex space-between">
-            <MailAside />
+            <MailAside mails={mails} />
             <section className="mail-list-container">
                 <MailFilter />
                 <MailList mails={mails} setMails={setMails} />
