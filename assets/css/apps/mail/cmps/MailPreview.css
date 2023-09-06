@@ -4,7 +4,8 @@
     align-items: center;
     background-color: var(--google-white);
     padding-block: 10px;
-    font-size: var(--mail-preview-font-size);
     border-block-end: 0.5px solid #c4c7c5;
+    font-size: var(--mail-preview-font-size);
+    font-weight: 700;
     cursor: pointer;
 }
