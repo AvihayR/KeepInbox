@@ -8,6 +8,7 @@ export const utilService = {
     getMonthName,
     loadFromStorage,
     saveToStorage,
+    formatDate
 }
 
 function makeId(length = 6) {
@@ -61,6 +62,33 @@ function getMonthName(date) {
         "July", "August", "September", "October", "November", "December"
     ]
     return monthNames[date.getMonth()]
+}
+
+function formatDate(timestamp) {
+    const date = new Date(timestamp);
+    const now = new Date();
+
+    const optionsDay = { day: 'numeric', month: 'long' };
+    const optionsTime = { hour: '2-digit', minute: '2-digit' };
+
+    if (date.toDateString() === now.toDateString()) {
+        const timeStr = date.toLocaleTimeString('en-US', optionsTime);
+        return `Today, ${timeStr}`;
+    }
+
+    const yesterday = new Date(now);
+    yesterday.setDate(now.getDate() - 1);
+    if (date.toDateString() === yesterday.toDateString()) {
+        const timeStr = date.toLocaleTimeString('en-US', optionsTime);
+        return `Yesterday, ${timeStr}`;
+    }
+
+    if (now.getFullYear() - date.getFullYear() > 1) {
+        const optionsYear = { year: 'numeric' };
+        return date.toLocaleDateString('en-US', { ...optionsDay, ...optionsYear });
+    }
+
+    return date.toLocaleDateString('en-US', optionsDay);
 }
 
 function saveToStorage(key, value) {

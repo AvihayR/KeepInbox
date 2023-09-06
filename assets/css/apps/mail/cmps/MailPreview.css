@@ -1,6 +1,6 @@
 .mail-index .mail-list .mail-preview-container {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 2fr 1fr;
     align-items: center;
     padding-block: 10px;
     border-block-end: 0.5px solid #c4c7c5;
@@ -8,6 +8,15 @@
     font-size: var(--mail-preview-font-size);
     font-weight: 700;
     cursor: pointer;
+}
+
+.mail-list .mail-preview-container span.mail-from {
+    margin-inline-start: 10px;
+}
+
+.mail-list .mail-preview-container span.mail-time {
+    place-self: end;
+    margin-inline-end: 10px;
 }
 
 .mail-index .mail-list .mail-preview-container.read {

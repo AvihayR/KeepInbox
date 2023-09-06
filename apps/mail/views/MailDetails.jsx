@@ -1,6 +1,8 @@
 import { mailService } from "../services/mail.service.js"
+import { utilService } from "../../../services/util.service.js"
 const { useState, useEffect } = React
 const { useParams, useNavigate, Outlet, useLocation } = ReactRouterDOM
+
 
 export function MailDetails() {
     const [mail, setMail] = useState(null)
@@ -18,7 +20,7 @@ export function MailDetails() {
             <section className="mail-details-header">
                 <span className="mail-from">From {mail.from}</span>
                 <span className="mail-to">To {mail.to}</span>
-                <span className="mail-time">Time {mail.sentAt}</span>
+                <span className="mail-time">{utilService.formatDate(mail.sentAt)}</span>
 
             </section>
         )

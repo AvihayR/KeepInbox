@@ -12,8 +12,6 @@ export function MailIndex() {
             .catch(err => console.log('Error:', err))
     }, [])
 
-    console.log(mails)
-
     if (!mails) return 'Loading...'
     return (
         <section className="mail-index">
