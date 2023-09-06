@@ -5,9 +5,11 @@
     --google-cyan: #a8c7fa;
     --google-black: #333333;
     --google-dark-grey: #5f6368;
+    --google-grey: #c4c7c5;
     --google-light-grey: #c4c7c5;
     --google-white: #f2f2f2;
     --google-light-yellow: #feefc3;
+    --google-transparent: #00000000;
 
     /* Marker colors for Keep */
     --google-marker-red: #faafa8;
@@ -16,5 +18,8 @@
     --google-marker-yellow: #fff8b8;
 
     /* more colors */
-    --google-red: #ff0000
+    --google-red: #ff0000;
+
+    /* Sizes */
+    --mail-preview-font-size: 0.875rem;
 }

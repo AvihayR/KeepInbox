@@ -1,1 +1,10 @@
-/*  */
+.mail-index .mail-list .mail-preview-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    background-color: var(--google-white);
+    padding-block: 10px;
+    font-size: var(--mail-preview-font-size);
+    border-block-end: 0.5px solid #c4c7c5;
+    cursor: pointer;
+}

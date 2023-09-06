@@ -1,6 +1,7 @@
 body {
     margin: 0;
     font-family: Roboto;
+    height: 100vh;
 }
 
 h1,
@@ -21,4 +22,8 @@ img {
     height: 100%;
     width: 100%;
     object-fit: cover;
+}
+
+ul {
+    all: unset;
 }
