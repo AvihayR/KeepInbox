@@ -1,6 +1,6 @@
 const { useEffect } = React
 
-export function MailAside({ mails }) {
+export function MailAside({ mails, setCompose }) {
 
     function renderUnreadCount() {
         if (!mails || !mails.length) return ''
@@ -12,7 +12,7 @@ export function MailAside({ mails }) {
 
     return (
         <aside>
-            <button>Compose</button>
+            <button onClick={() => { setCompose(isCompose => !isCompose) }}>Compose</button>
             <ul>
                 <li>Inbox {renderUnreadCount()}</li>
                 <li>Sent</li>
