@@ -1,5 +1,6 @@
 :root {
     /* --main-bg-color: lightblue; */
+
     --google-blue: #0b57d0;
     --google-cyan: #a8c7fa;
     --google-black: #333333;
@@ -7,9 +8,13 @@
     --google-light-grey: #c4c7c5;
     --google-white: #f2f2f2;
     --google-light-yellow: #feefc3;
+
     /* Marker colors for Keep */
     --google-marker-red: #faafa8;
     --google-marker-green: #e2f6d3;
     --google-marker-blue: #d4e4ed;
     --google-marker-yellow: #fff8b8;
+
+    /* more colors */
+    --google-red: #ff0000
 }
