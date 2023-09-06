@@ -1,4 +1,4 @@
-.mail-index .mail-list .mail-preview-container {
+.mail-list-container .mail-list .mail-preview-container {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     align-items: center;
@@ -19,7 +19,7 @@
     margin-inline-end: 10px;
 }
 
-.mail-index .mail-list .mail-preview-container.read {
+.mail-list-container .mail-list .mail-preview-container.read {
     background-color: var(--google-white);
     font-weight: 400;
 }

@@ -10,7 +10,6 @@ export function MailPreview({ mail }) {
     function readMail() {
         mail.isRead = true
         mailService.save(mail)
-        console.log(mail)
     }
 
     return (
