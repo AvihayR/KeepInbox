@@ -7,6 +7,7 @@ const { useState, useEffect } = React
 export function NoteIndex() {
 
     const [notes, setNotes] = useState(null)
+    
 
     useEffect(()=>{
         console.log('MOUNT')

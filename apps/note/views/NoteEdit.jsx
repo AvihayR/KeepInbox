@@ -1,10 +1,23 @@
-const { useState } = React
+const { useState, useEffect } = React
+const { useNavigate, useParams } = ReactRouterDOM
 
 import { noteService } from "../services/note.service.js"
 
 export function NoteEdit({ setNotes }) {
 
     const [noteToEdit, setNoteToEdit] = useState(noteService.getEmptyNote())
+    const navigate = useNavigate()
+    const params = useParams()
+
+    useEffect(() => {
+        if (params.noteId) loadNote()
+    }, [])
+
+    function loadNote() {
+        noteService.get(params.noteId)
+            .then(setNoteToEdit)
+            .catch(err => console.log('err:', err))
+    }
 
     function handleChange({ target }) {
         const field = target.name
@@ -38,10 +51,11 @@ export function NoteEdit({ setNotes }) {
         ev.preventDefault()
         noteService.save(noteToEdit)
             .then((savedNote) => {
-                 console.log('note saved!')
-                 setNotes((prevNotes) => [...prevNotes, savedNote])
-                 setNoteToEdit(noteService.getEmptyNote())
-                })
+                console.log('note saved!')
+                navigate('/note')
+                setNotes((prevNotes) => [...prevNotes, savedNote])
+                setNoteToEdit(noteService.getEmptyNote())
+            })
             .catch(err => console.log('err', err))
     }
 

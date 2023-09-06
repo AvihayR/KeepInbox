@@ -76,23 +76,22 @@ function query() {
     })
 }
 
-function get(bookId) {
-    return storageService.get(NOTE_KEY, bookId)
-        .then(book => {
-            book = _setNextPrevBookId(book)
-            return book
+function get(noteId) {
+    return storageService.get(NOTE_KEY, noteId)
+        .then(note => {
+            return note
         })
 }
 
-function remove(bookId) {
-    return storageService.remove(NOTE_KEY, bookId)
+function remove(noteId) {
+    return storageService.remove(NOTE_KEY, noteId)
 }
 
-function save(book) {
-    if (book.id) {
-        return storageService.put(NOTE_KEY, book)
+function save(note) {
+    if (note.id) {
+        return storageService.put(NOTE_KEY, note)
     } else {
-        return storageService.post(NOTE_KEY, book)
+        return storageService.post(NOTE_KEY, note)
     }
 }
 
