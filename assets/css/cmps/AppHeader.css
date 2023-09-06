@@ -10,16 +10,50 @@ header {
     padding: 20px 0;
 }
 
+
+.app-header h2 {
+    font-family: Raleway,sans-serif;
+    color:  var(--google-blue);
+}
+
 nav a {
     margin: .5em;
+    color: var(--google-blue);
+    
 }
 
 nav a:active {
-    color: purple;
+    color:  var(--google-blue);
 }
 
 nav a.active {
-    color: darkblue;
+    color:  var(--google-blue);
     font-weight: bold;
-    text-decoration: overline;
+    text-decoration:underline;
+}
+
+.app-header img {
+    max-width: 17px;
+}
+
+.color-header {
+    color: var(--google-yellow);
+}
+
+nav a.active {
+    color: var(--google-blue);
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+}
+
+nav a.active::after {
+    content: ''; 
+    display: block; 
+    height: 2px; 
+    background-color: var(--google-yellow);
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    right: 0;
 }

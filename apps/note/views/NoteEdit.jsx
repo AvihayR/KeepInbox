@@ -51,7 +51,6 @@ export function NoteEdit({ setNotes }) {
         ev.preventDefault()
         noteService.save(noteToEdit)
             .then((savedNote) => {
-                console.log('note saved!')
                 navigate('/note')
                 setNotes((prevNotes) => [...prevNotes, savedNote])
                 setNoteToEdit(noteService.getEmptyNote())
@@ -62,10 +61,9 @@ export function NoteEdit({ setNotes }) {
     return (
         <section className="note-edit">
             <form onSubmit={onSaveNote}>
-                <label htmlFor="text">Text:</label>
-                <input onChange={handleChange} value={noteToEdit.info.txt} type="text" name="info.txt" id="text" />
+                <input onChange={handleChange} value={noteToEdit.info.txt} type="text" placeholder="Take a note..." name="info.txt" id="text" />
 
-                <button>Save</button>
+                <button><i className="fa-solid fa-share"></i></button>
             </form>
         </section>
     )

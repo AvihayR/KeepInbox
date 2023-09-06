@@ -1,0 +1,80 @@
+.note-filter {
+    display: flex;
+    flex-direction: column;
+    margin-block: 15px;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    overflow: hidden;
+    width: 400px;
+    position: relative
+
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 16px;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%); 
+}
+
+.filter-button {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.filter-button.active {
+    color: var(--google-blue);
+}
+
+.filter-button:hover {
+    color: var(--google-blue);
+}
+
+.filter-button.notetxt.active {
+    color: var(--google-yellow);
+}
+
+.filter-button.notetxt:hover {
+    color: var(--google-yellow);
+}
+
+.filter-button.noteImg.active {
+    color: var(--google-red);
+}
+
+.filter-button.noteImg:hover {
+    color: var(--google-red);
+}
+
+.filter-button.noteTodos.active {
+    color: var(--google-green);
+}
+
+.filter-button.noteTodos:hover {
+    color: var(--google-green);
+}
+ 
+.filter-button input[type="radio"] {
+    display: none;
+}
+

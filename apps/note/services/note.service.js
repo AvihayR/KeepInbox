@@ -1,8 +1,7 @@
 import { utilService } from '../../../services/util.service.js'
 import { storageService } from '../../../services/async-storage.service.js'
 
-
-
+const colors = ['#faafa8', '#fff8b8', '#e2f6d3', '#b4ddd3', '#aeccdc', '#d3bfdb'];
 const NOTE_KEY = 'noteDB'
 
 var demoNotes = [
@@ -12,7 +11,7 @@ var demoNotes = [
         type: 'NoteTxt',
         isPinned: true,
         style: {
-            backgroundColor: '#00d'
+            backgroundColor: getRandomColor(colors)
         },
         info: {
             txt: 'Fullstack Me Baby!'
@@ -20,26 +19,26 @@ var demoNotes = [
     },
     {
         id: 'n102',
-        createdAt: 1112255,
-        type: 'NoteTxt',
+        type: 'NoteImg',
         isPinned: false,
-        style: {
-            backgroundColor: '#ff0000'
-        },
         info: {
-            txt: 'Here we go!'
+            url: 'https://media3.giphy.com/media/l1KVaj5UcbHwrBMqI/giphy.gif?cid=ecf05e47pojxgnow0wzwje6bl6gewmwthjpgfbo5rkuib7vr&ep=v1_gifs_gifId&rid=giphy.gif&ct=g',
+            title: 'Bobi and Me'
+        },
+        style: {
+            backgroundColor: getRandomColor(colors)
         }
     },
     {
         id: 'n103',
-        type: 'NoteImg',
+        createdAt: 1112255,
+        type: 'NoteTxt',
         isPinned: false,
-        info: {
-            url: 'http://some-img/me',
-            title: 'Bobi and Me'
-        },
         style: {
-            backgroundColor: '#00d'
+            backgroundColor: getRandomColor(colors)
+        },
+        info: {
+            txt: 'Here we go!'
         }
     },
     {
@@ -54,10 +53,23 @@ var demoNotes = [
             ]
         },
         style: {
-            backgroundColor: '#232323'
+            backgroundColor: getRandomColor(colors)
         }
-        
-    }
+
+
+    },
+    {
+        id: 'n105',
+        type: 'NoteImg',
+        isPinned: false,
+        info: {
+            url: 'https://media0.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif?cid=ecf05e478ggsr47k52n7w0qk49kmp9k9ziq2jqklmdaavvgm&ep=v1_gifs_gifId&rid=giphy.gif&ct=g',
+            title: 'Bobi and Me'
+        },
+        style: {
+            backgroundColor: getRandomColor(colors)
+        }
+    },
 ]
 
 _createNotes()
@@ -71,13 +83,21 @@ export const noteService = {
     getDefaultFilter,
 }
 
-function query() {
+function query(filterBy = {}) {
     return storageService.query(NOTE_KEY)
-    .then((notes) => {
+        .then((notes) => {
+            if (filterBy.txt) {
+                const regExp = new RegExp(filterBy.txt, 'i')
+                notes = notes.filter(note => regExp.test(note.info.txt,))
+            }
+
+            if (filterBy.type) {
+                notes = notes.filter(note => note.type === filterBy.type)
+            }
 
 
-        return notes
-    })
+            return notes
+        })
 }
 
 function get(noteId) {
@@ -105,7 +125,7 @@ function getEmptyNote() {
         type: 'NoteTxt',
         isPinned: false,
         style: {
-            backgroundColor: '#00d'
+            backgroundColor: getRandomColor(colors)
         },
         info: {
             txt: ''
@@ -114,7 +134,7 @@ function getEmptyNote() {
 }
 
 function getDefaultFilter() {
-    return { txt: '', maxPrice: '', minPages: '' }
+    return { txt: '', type: ''  }
 }
 
 function _createNotes() {
@@ -123,4 +143,9 @@ function _createNotes() {
         notes = demoNotes
         utilService.saveToStorage(NOTE_KEY, notes)
     }
+}
+
+function getRandomColor(colors) {
+    const randomIndex = Math.floor(Math.random() * colors.length)
+    return colors[randomIndex]
 }

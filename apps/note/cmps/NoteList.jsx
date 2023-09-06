@@ -19,7 +19,6 @@ export function NoteList({ notes, onRemoveNote, onChangeColor }) {
         <ul className="note-list">
             {notes.map(note => (
                 <li key={note.id} style={{ backgroundColor: note.style.backgroundColor }} >
-                    {console.log('note ', note)}
                     <NotePreview note={note} />
                     <section>
                         <button onClick={(event) => handleColorButtonClick(note.id, event)}><i className="fa-solid fa-palette"></i></button>
