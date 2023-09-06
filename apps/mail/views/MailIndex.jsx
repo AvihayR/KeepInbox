@@ -17,7 +17,7 @@ export function MailIndex() {
     if (!mails) return 'Loading...'
     return (
         <section className="mail-index">
-            <MailList mails={mails} />
+            <MailList mails={mails} setMails={setMails} />
         </section>
     )
 }
