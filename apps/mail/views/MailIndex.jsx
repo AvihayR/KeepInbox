@@ -23,9 +23,9 @@ export function MailIndex() {
             <MailAside mails={mails} setCompose={setCompose} />
             <section className="mail-list-container">
                 <MailFilter />
-                <MailList mails={mails} setMails={setMails} />
+                <MailList mails={mails} />
             </section>
-            {isCompose && <MailCompose setCompose={setCompose} />}
+            {isCompose && <MailCompose setCompose={setCompose} setMails={setMails} />}
         </main>
     )
 }

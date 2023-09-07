@@ -1,7 +1,7 @@
 import { mailService } from "../services/mail.service.js"
 const { Fragment, useState } = React
 
-export function MailCompose({ setCompose }) {
+export function MailCompose({ setCompose, setMails }) {
     const [mailToCompose, composeMail] = useState({})
 
     function handleChange({ target }) {
@@ -13,12 +13,15 @@ export function MailCompose({ setCompose }) {
 
     function onSendMail(ev) {
         ev.preventDefault()
+        closeCompose(ev)
         mailService.createMail(mailToCompose)
-            .then(console.log)
+            .then(sentMail => setMails(prevMailToEdit => [sentMail, ...prevMailToEdit]))
             .catch(err => console.log('Error: ', err))
     }
 
-    function closeCompose() {
+    function closeCompose(ev) {
+        ev.preventDefault()
+        composeMail({})
         setCompose(false)
     }
 
@@ -45,7 +48,7 @@ export function MailCompose({ setCompose }) {
         return (
             <div className="lower-controls">
                 <button className="send">Send</button>
-                <button className="trash">Delete</button>
+                <button className="trash" onClick={closeCompose}>Delete</button>
             </div>
         )
     }

@@ -9,7 +9,7 @@ const demoData = [
         sentAt: 1551133930600,
         removedAt: null,
         from: 'someone@gmail.com',
-        to: 'micheal@keepinbox.com'
+        to: 'michaelscott@theoffice.com'
     },
     {
         id: 'e102',
@@ -29,7 +29,7 @@ const demoData = [
         sentAt: 1551133930594,
         removedAt: null,
         from: 'wolt@keepinbox.com',
-        to: 'micheal@keepinbox.com'
+        to: 'michaelscott@theoffice.com'
     },
     {
         id: 'e103',
@@ -46,7 +46,7 @@ const demoData = [
         sentAt: 1551133930500,
         removedAt: null,
         from: 'adidas',
-        to: 'micheal@keepinbox.com'
+        to: 'michaelscott@theoffice.com'
     },
     {
         id: 'e104',
@@ -57,7 +57,7 @@ const demoData = [
         sentAt: 1551133930300,
         removedAt: null,
         from: 'dropbox@keepinbox.com',
-        to: 'micheal@keepinbox.com'
+        to: 'michaelscott@theoffice.com'
     },
     {
         id: 'e105',
@@ -80,7 +80,7 @@ const demoData = [
         sentAt: 1551122930594,
         removedAt: null,
         from: 'mailing@airalo.com',
-        to: 'micheal@keepinbox.com'
+        to: 'michaelscott@theoffice.com'
     },
     {
         id: 'e106',
@@ -103,7 +103,7 @@ const demoData = [
         sentAt: Date.now(),
         removedAt: null,
         from: 'hello@tryhackme.com',
-        to: 'micheal@keepinbox.com'
+        to: 'michaelscott@theoffice.com'
     },
 
 ]
