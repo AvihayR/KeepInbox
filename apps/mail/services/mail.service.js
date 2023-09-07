@@ -6,13 +6,14 @@ export const mailService = {
     query,
     get,
     save,
-    createMail
+    remove,
+    createMail,
 }
 
 const MAIL_KEY = 'mailDB'
 
 const loggedInUser = {
-    email: 'micheal@keepinbox.com',
+    email: 'michaelscott@theoffice.com',
     fullName: 'Micheal Scott'
 }
 
@@ -24,7 +25,7 @@ const email = {
     sentAt: 1551133930600,
     removedAt: null,
     from: 'someone@gmail.com',
-    to: 'micheal@keepinbox.com'
+    to: 'michaelscott@theoffice.com'
 }
 
 // const eMailsDemoData = {
@@ -82,4 +83,8 @@ function save(mail) {
     } else {
         return storageService.post(MAIL_KEY, mail)
     }
+}
+
+function remove(mailId) {
+    return storageService.remove(MAIL_KEY, mailId)
 }

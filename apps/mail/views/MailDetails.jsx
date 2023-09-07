@@ -1,7 +1,7 @@
 import { mailService } from "../services/mail.service.js"
 import { utilService } from "../../../services/util.service.js"
 const { useState, useEffect } = React
-const { useParams, useNavigate, Outlet, useLocation } = ReactRouterDOM
+const { useParams, Link, useNavigate, Outlet, useLocation } = ReactRouterDOM
 
 
 export function MailDetails() {
@@ -25,9 +25,17 @@ export function MailDetails() {
             </section>
         )
     }
+
+    function renderMailTopControls() {
+        return (
+            <Link to='/mail'>Back</Link>
+        )
+    }
+
     if (!mail) return <span>Loading...</span>
     return (
         <section className="mail-container">
+            {renderMailTopControls()}
             <h1>{mail.subject}</h1>
             {renderMailHeader()}
 

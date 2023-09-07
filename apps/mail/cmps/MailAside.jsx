@@ -17,6 +17,7 @@ export function MailAside({ mails, setCompose }) {
                 <li>Inbox {renderUnreadCount()}</li>
                 <li>Sent</li>
                 <li>Drafts</li>
+                <li>Trash</li>
             </ul>
         </aside>
     )

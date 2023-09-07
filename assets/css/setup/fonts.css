@@ -12,3 +12,18 @@
     font-family: Raleway;
     src: url(../../fonts/Raleway-Light.ttf);
 }
+
+@font-face {
+    font-family: fa-brands;
+    src: url(../../fonts/fa-brands-400.woff2);
+}
+
+@font-face {
+    font-family: fa-regular;
+    src: url(../../fonts/fa-regular-400.woff2);
+}
+
+@font-face {
+    font-family: fa-solid;
+    src: url(../../fonts/fa-solid-900.woff2);
+}
