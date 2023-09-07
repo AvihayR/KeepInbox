@@ -17,6 +17,7 @@ input[name="subject"]::after {
     visibility: visible;
     font-family: fa-solid;
     content: '\f077';
+    cursor: pointer;
 }
 
 input[name="sentAt"]:checked::after,

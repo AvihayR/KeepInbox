@@ -25,8 +25,9 @@ export function MailPreview({ mail, setMails }) {
         }}>
             <span className="mail-from">{mail.from}</span>
             <span className="mail-subject">{mail.subject}</span>
+            <span className="mail-body">{`- ${mail.body}`}</span>
             <span className="mail-time">
-                {/* <button className="remove"></button> */}
+
                 <DynamicButton cmpType='remove' cb={removeMail} />
                 {utilService.formatDate(mail.sentAt)}
             </span>

@@ -1,4 +1,4 @@
 .mail-list-container {
-    width: 100%;
+    max-width: 90vw;
     margin-inline: 15px;
 }

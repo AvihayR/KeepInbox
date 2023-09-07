@@ -1,14 +1,31 @@
 .mail-list-container .mail-list .mail-preview-container {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: minmax(200px, 12.5vw) 1fr 6fr 1fr;
+    justify-content: space-between;
     align-items: center;
-    padding-block: 10px;
+    padding-block: 7px;
     border-block-end: 0.5px solid #c4c7c5;
     border-inline: 0.5px solid var(--google-light-grey);
     background-color: white;
     font-size: var(--mail-preview-font-size);
     font-weight: 700;
     cursor: pointer;
+}
+
+.mail-list .mail-preview-container .mail-from {
+    white-space: nowrap;
+}
+
+.mail-list .mail-preview-container .mail-subject {
+    white-space: nowrap;
+}
+
+.mail-list .mail-preview-container .mail-body {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--google-light-black);
+    font-weight: 400;
 }
 
 .mail-list-container .mail-list .mail-preview-container:last-of-type {
@@ -20,8 +37,9 @@
 }
 
 .mail-list .mail-preview-container span.mail-time {
-    place-self: end;
+    margin-inline-start: auto;
     margin-inline-end: 10px;
+    white-space: nowrap;
 }
 
 .mail-list-container .mail-list .mail-preview-container.read {
