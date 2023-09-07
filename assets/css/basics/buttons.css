@@ -13,3 +13,11 @@ button.remove::after {
 button.remove:hover {
     background-color: var(--google-light-grey);
 }
+
+button.plus {
+    font-family: fa-regular;
+}
+
+button.plus:after {
+    content: '\2b';
+}

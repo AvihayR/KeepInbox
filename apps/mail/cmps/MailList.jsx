@@ -1,5 +1,5 @@
-const { useState } = React;
 import { MailPreview } from "./MailPreview.jsx";
+const { useState } = React;
 
 export function MailList({ mails }) {
     return (
