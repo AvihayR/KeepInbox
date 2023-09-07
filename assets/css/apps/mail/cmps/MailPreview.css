@@ -10,6 +10,11 @@
     font-size: var(--mail-preview-font-size);
     font-weight: 700;
     cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.mail-list .mail-preview-container:hover {
+    background-color: var(--google-white);
 }
 
 .mail-list .mail-preview-container .mail-from {

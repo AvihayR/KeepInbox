@@ -26,7 +26,7 @@ const demoData = [
         מסמכי ההזמנה שלך מצורפים למייל זה. אם יש לך שאלות נוספות, אפשר לפנות אלינו דרך הצ'אט
         `,
         isRead: false,
-        sentAt: 1551133930594,
+        sentAt: 1693872000000,
         removedAt: null,
         from: 'wolt@keepinbox.com',
         to: 'michaelscott@theoffice.com'
@@ -61,7 +61,7 @@ const demoData = [
     },
     {
         id: 'e105',
-        subject: 'ה-eSIM שלנו לסינגפור חוזר 🤳',
+        subject: 'Our eSIM is back in Singapore 🦩',
         body: `
         שלנו לסינגפור חוזר eSIM-ה
         אלו מ-Airalo 👋
@@ -105,7 +105,91 @@ const demoData = [
         from: 'hello@tryhackme.com',
         to: 'michaelscott@theoffice.com'
     },
+    {
+        id: 'e107',
+        subject: '💻 15 JavaScript Techniques to Enhance Your Code ',
+        body: `
+        Stories for Avici
+        @avici·Become a member
+        Medium daily digest
+        TODAY'S HIGHLIGHTS
+        
+        Level Up Coding
+        Rabi Siddique in Level Up Coding·7 min read
+        💻 15 JavaScript Techniques to Enhance Your Code
+        As a popular programming language for web development, JavaScript offers a lot of features and…
+        Invisible Illness
+        Annie Tanasugarn, PhD in Invisible Illness·7 min readMember-only content
+        How ‘Conditions of Worth’ Can Become People-Pleasing Behavior
+        Understanding how being taught your value as conditional can lead to “chasing” validation.
+        Dmitriy Kumantsev
+        Dmitriy Kumantsev·3 min read
+        10 extensions for VSCode that will simplify development
+        Before I start, I should point out that plugins make it easier to work on code, but if there are too many of…
+        Web3 News & Blogging Website—2023
+        deToxic Dev in Web3 News & Blogging Website2023·8 min read
+        7 Architecture Design Patterns — You wish you knew before interview
+        Source: Undraw
+        Anirudh Munipalli
+        Anirudh Munipalli·3 min read
+        Create a Screen Recorder with Simple JavaScript
+        Learn about this simple to use API that is used for Screen Sharing, Screen recording and more. And create a…
+        `
+        ,
+        isRead: false,
+        sentAt: 1694100757630,
+        removedAt: null,
+        from: 'Medium',
+        to: 'michaelscott@theoffice.com'
+    },
+    {
+        id: 'e108',
+        subject: 'We\'re having a SALE 🚨',
+        body: `
+        Shop Up to 60% Off
+        Free Shipping over $50
+        Vitaly
+         
+        ENGINEERED
+        ACCESSORIES
+            
+        Made for the future with 100% recycled stainless steel.
+     
+        Shop All
+        Contact
+        Instagram
+        Tiktok
+        To ensure you continue receiving our emails,
+        add us to your address book or safe list.  
+        
+        No longer want to receive these emails? Manage Preferences or Unsubscribe 
+        `
+        ,
+        isRead: false,
+        sentAt: 1694114757630,
+        removedAt: null,
+        from: 'Vitaly',
+        to: 'michaelscott@theoffice.com'
+    },
+    {
+        id: 'e109',
+        subject: 'Slack account sign in from a new device',
+        body: `
+        slack logo
+        Slack account sign in from a new device
+        📱 iPhone in ISR
+        If this was you, you’re all set!
+        If this wasn’t you, please change your password by clicking the button below. You can also enable two-factor authentication to help secure your account.
 
+        This wasn’t me
+        `
+        ,
+        isRead: false,
+        sentAt: 1693811757630,
+        removedAt: null,
+        from: 'Slack',
+        to: 'michaelscott@theoffice.com'
+    },
 ]
 
 export default demoData;
