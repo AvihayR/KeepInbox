@@ -1,9 +1,26 @@
+const { useState } = React
+
 export function MailFilter({ filterBy, onSetFilterBy }) {
 
-    function handleChange({ target }) {
-        const field = target.name
-        let value = target.value
+    const [isModalOpen, setModalOpen] = useState(false)
 
+    function toggleModal() {
+        setModalOpen(prevModalState => !prevModalState)
+    }
+
+    function renderDropDown() {
+        return (
+            <ul className="filter-dropdown">
+                <option data-name='isRead' value='' onClick={handleChange}>All</option>
+                <option data-name='isRead' value="read" onClick={handleChange}>Read</option>
+                <option data-name='isRead' value='unread' onClick={handleChange}>Unread</option>
+            </ul>
+        )
+    }
+
+    function handleChange({ target }) {
+        const field = target.dataset.name
+        let value = target.value
         switch (target.type) {
             case 'number':
             case 'range':
@@ -21,14 +38,11 @@ export function MailFilter({ filterBy, onSetFilterBy }) {
     }
 
     return (
-        <div className="filter-container">
-            <input className="filter-by-text" type="text" name='txt' placeholder="Search mail" onChange={handleChange} />
-
-            <select name="isRead" onChange={handleChange}>
-                <option value=''>All</option>
-                <option value="read">Read</option>
-                <option value='unread'>Unread</option>
-            </select>
+        <div className="filter-container flex justify-center">
+            <input className="filter-by-text" type="text" data-name='txt' placeholder="Search mail" title="Search a mail via text" onChange={handleChange} />
+            <button className="filter-by-read google-btn" onClick={toggleModal}>
+                {isModalOpen && renderDropDown()}
+            </button>
         </div>
     )
 

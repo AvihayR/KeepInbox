@@ -1,18 +1,22 @@
-button.remove {
+.google-btn {
     all: unset;
-    font-family: fa-regular;
     padding: 6px;
     border-radius: 5rem;
     transition: background-color 0.3s;
+}
+
+.google-btn:hover {
+    background-color: var(--google-light-grey);
+}
+
+button.remove {
+    font-family: fa-regular;
 }
 
 button.remove::after {
     content: '\f2ed';
 }
 
-button.remove:hover {
-    background-color: var(--google-light-grey);
-}
 
 button.plus {
     font-family: fa-regular;

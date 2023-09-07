@@ -16,7 +16,6 @@ export function MailPreview({ mail, setMails }) {
         ev.stopPropagation()
         mailService.remove(mail.id)
             .then(setMails(prevMails => prevMails.filter(prevMail => prevMail !== mail)))
-        // console.log('remove', mail)
     }
 
     return (
