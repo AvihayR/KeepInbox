@@ -1,0 +1,15 @@
+button.remove {
+    all: unset;
+    font-family: fa-regular;
+    padding: 6px;
+    border-radius: 5rem;
+    transition: background-color 0.3s;
+}
+
+button.remove::after {
+    content: '\f2ed';
+}
+
+button.remove:hover {
+    background-color: var(--google-light-grey);
+}

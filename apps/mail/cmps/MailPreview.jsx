@@ -20,7 +20,7 @@ export function MailPreview({ mail }) {
             <span className="mail-from">{mail.from}</span>
             <span className="mail-subject">{mail.subject}</span>
             <span className="mail-time">
-                <button>Remove</button>
+                <button className="remove"></button>
                 {utilService.formatDate(mail.sentAt)}
             </span>
         </li>
