@@ -7,6 +7,7 @@
 }
 
 .note-list li {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -14,4 +15,43 @@
     border-radius: 10px;
     background-color: var(--google-light-yellow);
     transition: background-color .6s;
+}
+
+.note-list .note-container:hover {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.note-list .note-container button{
+    background: none ;
+    border: none;
+    margin-inline: 1.5em;
+}
+
+.note-list .note-container button{
+    background: none ;
+    border: none;
+    margin-inline: 1.5em;
+    padding: 5px;
+}
+
+.note-list .note-container button:hover{
+    background-color: rgba(165, 165, 165, 0.7) ;
+    border-radius: 50%;
+}
+
+.pin-icon {
+    background:none;
+    border: none;
+    position: absolute;
+    top: 10px;
+    right: 1em;
+}
+
+.fa-thumbtack:hover  {
+    animation:  1s rubberBand;
+}
+
+.fa-trash-can:hover {
+    color: var(--google-red);
+    animation: 1s swing;
 }

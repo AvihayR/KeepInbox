@@ -4,11 +4,11 @@
 }
 
 @font-face {
-<<<<<<< HEAD
-    font-family: Raleway;
-    src: url(../../fonts/Raleway-Light.ttf);
-=======
     font-family: GoogleSans;
     src: url(../../fonts/GoogleSans.ttf);
->>>>>>> 3008ecd9335cc99071228c533008cd08fb12b264
+}
+
+@font-face {
+    font-family: Raleway;
+    src: url(../../fonts/Raleway-Light.ttf);
 }

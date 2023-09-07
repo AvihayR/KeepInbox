@@ -81,6 +81,8 @@ export const noteService = {
     save,
     getEmptyNote,
     getDefaultFilter,
+    savePinnedNotes,
+    loadPinnedNotes,
 }
 
 function query(filterBy = {}) {
@@ -149,3 +151,12 @@ function getRandomColor(colors) {
     const randomIndex = Math.floor(Math.random() * colors.length)
     return colors[randomIndex]
 }
+
+function savePinnedNotes(pinnedNotes) {
+    localStorage.setItem('pinnedNotes', JSON.stringify(pinnedNotes))
+  }
+  
+  function loadPinnedNotes() {
+    const pinnedNotesJSON = localStorage.getItem('pinnedNotes')
+    return JSON.parse(pinnedNotesJSON) || []
+  }

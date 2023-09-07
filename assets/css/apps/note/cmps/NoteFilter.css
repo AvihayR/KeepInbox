@@ -10,7 +10,7 @@
     display: flex;
     align-items: center;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 15px;
     padding: 5px;
     overflow: hidden;
     width: 400px;
@@ -40,6 +40,10 @@
     align-items: center;
     cursor: pointer;
     user-select: none;
+}
+
+.filter-button:hover {
+    animation: 1s infinite pulse;
 }
 
 .filter-button.active {

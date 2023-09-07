@@ -5,8 +5,17 @@
 
 .note-edit form input {
     margin-block: 15px;
-    /* padding: 5px; */
+    border: none;
+    outline: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 16px;
     transition: background-color .4s;
+}
+
+.note-edit button {
+background: none;
+border: none;
 }
 
 .note-edit form input:focus {
