@@ -9,6 +9,7 @@ export const mailService = {
     remove,
     createMail,
     getDefaultFilter,
+    getDefaultSort
 }
 
 const MAIL_KEY = 'mailDB'
@@ -105,4 +106,8 @@ function remove(mailId) {
 
 function getDefaultFilter() {
     return { txt: '', isRead: null }
+}
+
+function getDefaultSort() {
+    return { subject: '', sentAt: null }
 }
