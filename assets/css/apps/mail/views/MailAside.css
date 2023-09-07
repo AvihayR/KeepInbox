@@ -1,0 +1,46 @@
+.app .main-mail aside {
+    color: var(--google-dark-grey);
+    font-family: 'GoogleSans', 'Roboto', 'sans-serif';
+    font-weight: 700;
+    margin-inline-start: 8px;
+}
+
+.main-mail aside .compose {
+    font-size: 1rem;
+    height: 3.5rem;
+    border-radius: 1rem;
+    outline: none;
+    border: none;
+    background-color: var(--google-sky);
+    color: var(--google-dark-grey);
+    padding: 5px 15px;
+    transition: box-shadow 0.3s, color 0.3s;
+    margin-bottom: 0.5em;
+}
+
+.main-mail aside .compose::before {
+    font-family: fa-solid;
+    font-size: 1rem;
+    content: '\f303';
+    margin-inline-end: 7px;
+}
+
+.main-mail aside .compose:hover {
+    box-shadow: 0 4px 10px #9e9e9ec8;
+    color: var(--google-black);
+}
+
+.main-mail aside li {
+    list-style: none;
+    display: flex;
+    padding: 0.3125em 0.4em;
+}
+
+.main-mail aside li:hover {
+    background-color: var(--google-cyan);
+    border-radius: 2rem;
+}
+
+.main-mail aside li .unread-indicator {
+    margin-inline-start: auto;
+}

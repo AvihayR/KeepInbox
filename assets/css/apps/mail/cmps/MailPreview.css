@@ -17,6 +17,12 @@
     background-color: var(--google-white);
 }
 
+.mail-list .mail-preview-container.empty {
+    white-space: nowrap;
+    cursor: default;
+    padding-inline-start: 15px;
+}
+
 .mail-list .mail-preview-container .mail-from {
     white-space: nowrap;
 }

@@ -6,18 +6,18 @@ export function MailAside({ mails, setCompose }) {
         if (!mails || !mails.length) return ''
         else {
             const unreadMails = mails.filter(mail => !mail.isRead)
-            return <span>{unreadMails.length}</span>
+            return <span className="unread-indicator">{unreadMails.length}</span>
         }
     }
 
     return (
         <aside>
-            <button onClick={() => { setCompose(isCompose => !isCompose) }}>Compose</button>
+            <button className="compose" title="Compose a new message" onClick={() => { setCompose(isCompose => !isCompose) }}>Compose</button>
             <ul>
-                <li>Inbox {renderUnreadCount()}</li>
-                <li>Sent</li>
-                <li>Drafts</li>
-                <li>Trash</li>
+                <li title="Go to your inbox">Inbox {renderUnreadCount()}</li>
+                <li title="Go to sent mails">Sent</li>
+                <li title="Go to drafts folder">Drafts</li>
+                <li title="Go to trash folder">Trash</li>
             </ul>
         </aside>
     )
