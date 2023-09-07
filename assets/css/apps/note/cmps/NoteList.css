@@ -1,12 +1,13 @@
 .note-list {
     padding: 15px 0 0;
     list-style: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     gap: 15px;
 }
 
-.note-list li {
+.note-list .note-container {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -15,6 +16,8 @@
     border-radius: 10px;
     background-color: var(--google-light-yellow);
     transition: background-color .6s;
+    overflow: hidden;
+    padding: 8px 12px;
 }
 
 .note-list .note-container:hover {
@@ -49,12 +52,11 @@
     animation: 1s swing;
 }
 
+
 .note-container .pin-icon,
 .note-container section button {
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
-  top: 10px;
-  right: 10px;
 }
 
 .note-container:hover .pin-icon,

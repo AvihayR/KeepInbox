@@ -9,36 +9,36 @@ var demoNotes = [
         id: 'n101',
         createdAt: 1112222,
         type: 'NoteTxt',
-        isPinned: true,
-        style: {
-            backgroundColor: getRandomColor(colors)
-        },
-        info: {
-            txt: 'Fullstack Me Baby!'
-        }
-    },
-    {
-        id: 'n102',
-        type: 'NoteImg',
         isPinned: false,
-        info: {
-            url: 'https://media3.giphy.com/media/l1KVaj5UcbHwrBMqI/giphy.gif?cid=ecf05e47pojxgnow0wzwje6bl6gewmwthjpgfbo5rkuib7vr&ep=v1_gifs_gifId&rid=giphy.gif&ct=g',
-            title: 'Bobi and Me'
-        },
         style: {
             backgroundColor: getRandomColor(colors)
+        },
+        info: {
+            txt: '"It\'s not about the shoes. It\'s about what you do in them." - Michael Jordan'
         }
     },
     {
         id: 'n103',
         createdAt: 1112255,
         type: 'NoteTxt',
-        isPinned: false,
+        isPinned: true,
         style: {
             backgroundColor: getRandomColor(colors)
         },
         info: {
             txt: 'Here we go!'
+        }
+    },
+    {
+        id: 'n102',
+        type: 'NoteImg',
+        isPinned: true,
+        info: {
+            url: 'https://media.istockphoto.com/id/1185792622/photo/theres-no-buddy-like-a-travel-buddy.jpg?s=612x612&w=0&k=20&c=H6HN09lr6K8o_tPIJx_XyAf5tRLFHlBxslscXJ5E3FM=',
+            title: 'Bobi and Me'
+        },
+        style: {
+            backgroundColor: getRandomColor(colors)
         }
     },
     {
@@ -64,11 +64,29 @@ var demoNotes = [
         isPinned: false,
         info: {
             url: 'https://media0.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif?cid=ecf05e478ggsr47k52n7w0qk49kmp9k9ziq2jqklmdaavvgm&ep=v1_gifs_gifId&rid=giphy.gif&ct=g',
-            title: 'Bobi and Me'
+            title: 'On my way'
         },
         style: {
             backgroundColor: getRandomColor(colors)
         }
+    },
+    {
+        id: 'n106',
+        type: 'NoteTodos',
+        isPinned: false,
+        info: {
+            title: 'TO DO',
+            todos: [
+                { txt: 'Buy groceries after work: milk, eggs, and bread.', doneAt: null },
+                { txt: 'Pay the electricity bill by the end of the week.', doneAt: null },
+                { txt: 'Don\'t forget to water the plants in the living room this evening.', doneAt: null }
+            ]
+        },
+        style: {
+            backgroundColor: getRandomColor(colors)
+        }
+
+
     },
 ]
 

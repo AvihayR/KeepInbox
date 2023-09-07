@@ -6,29 +6,61 @@
 
 export function NotePreview({ note }) {
 
+    function DynamicCmp() {
+        switch (note.type) {
+            case 'NoteTxt':
+                return <NoteTxt info={note.info} />
+            case 'NoteImg':
+                return <NoteImg info={note.info} />
+            case 'NoteTodos':
+                return <NoteTodos info={note.info} />
+            default:
+                return null
+        }
+    }
+
     return (
-        <article className="note-preview">
-            
-            <p>{note.info.txt}</p>
-            {note.type === 'NoteImg' &&
-                <React.Fragment>
-                    <h2>{note.info.title}</h2>
-                    <img src={note.info.url} />
-                </React.Fragment>
-            }
-
-            {note.type === 'NoteTodos' &&
-                <React.Fragment>
-                    <h4> {note.info.title} </h4>
-                    <ul>
-                        {note.info.todos.map(todo => <li key={todo.txt}>
-                            <label htmlFor={todo.txt}>{todo.txt}</label>
-                            <input type="checkbox" id={todo.txt} />
-
-                        </li>)}
-                    </ul>
-                </React.Fragment>}
-
+        <article className="note-preview " >
+            {<DynamicCmp />}
         </article>
     )
+
 }
+
+function NoteTxt({ info }) {
+    const { txt } = info
+    return (
+        <div className="note-txt">
+            {txt}
+        </div>
+    )
+}
+
+function NoteImg({ info }) {
+    const { url, title } = info
+
+    return (
+        <div className="note-img">
+            <img src={url} alt={title} />
+            <h3>{title}</h3>
+        </div>
+    )
+}
+
+function NoteTodos({ info }) {
+    const { title, todos } = info
+    return (
+      <div className="note-todos">
+        <h4>{title}</h4>
+        <ul>
+          {todos.map(todo => (
+            <li key={todo.txt}>
+              <input type="checkbox" id={todo.txt} />
+              <label htmlFor={todo.txt}>{todo.txt}</label>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+  
