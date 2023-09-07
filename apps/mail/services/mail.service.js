@@ -8,6 +8,7 @@ export const mailService = {
     save,
     remove,
     createMail,
+    getDefaultFilter,
 }
 
 const MAIL_KEY = 'mailDB'
@@ -45,9 +46,22 @@ const criteria = {
 
 _createMails()
 
-function query() {
+function query(filterBy = {}) {
     return storageService.query(MAIL_KEY)
         .then(mails => {
+            if (filterBy.txt) {
+                const regex = new RegExp(filterBy.txt, 'i')
+                mails = mails.filter(mail => regex.test(mail.subject))
+            }
+            if (filterBy.isRead === null || filterBy.isRead === '') {
+                return mails
+            }
+            if (filterBy.isRead === 'unread') {
+                mails = mails.filter(mail => mail.isRead === false)
+            } else {
+                mails = mails.filter(mail => mail.isRead)
+            }
+
             return mails
         })
 }
@@ -87,4 +101,8 @@ function save(mail) {
 
 function remove(mailId) {
     return storageService.remove(MAIL_KEY, mailId)
+}
+
+function getDefaultFilter() {
+    return { txt: '', isRead: null }
 }
