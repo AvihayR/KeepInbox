@@ -22,9 +22,9 @@ export function NoteList({ notes, onRemoveNote, onChangeColor, onPinNote, onDupl
     })
 
     return (
-        <ul className="note-list">
+        <div className="note-list">
             {sortedNotes.map(note => (
-                <li className="note-container" key={note.id} style={{ backgroundColor: note.style.backgroundColor }} >
+                <div className="note-container" key={note.id} style={{ backgroundColor: note.style.backgroundColor }} >
                     <button title="Pin note" className="pin-icon" onClick={() => { onPinNote(note.id) }}>{note.isPinned ? <i className="fa-solid fa-thumbtack"></i> : <i className="fa-solid fa-thumbtack" style={{color: 'rgba(89, 85, 98, 0.4)'}}></i> }</button>
                     <NotePreview note={note} />
                     <section>
@@ -33,7 +33,7 @@ export function NoteList({ notes, onRemoveNote, onChangeColor, onPinNote, onDupl
                         <button title="Duplicate Note" onClick={() => onDuplicateNote(note)}><i className="fa-solid fa-clone"></i></button>
                         <button title="Remove note" onClick={() => onRemoveNote(note.id)}><i className="fa-solid fa-trash-can"></i></button>
                     </section>
-                </li>
+                </div>
             ))}
             <ColorPickerModal
                 isOpen={showColorPicker}
@@ -44,6 +44,6 @@ export function NoteList({ notes, onRemoveNote, onChangeColor, onPinNote, onDupl
                 }}
                 position={modalPosition}
             />
-        </ul>
+        </div>
     )
 }
