@@ -26,3 +26,12 @@ button.plus {
 button.plus:after {
     content: '\2b';
 }
+
+button.x-mark {
+    font-family: fa-solid;
+    cursor: pointer;
+}
+
+button.x-mark:after {
+    content: '\f00d'
+}

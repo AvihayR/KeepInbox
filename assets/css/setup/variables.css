@@ -26,4 +26,6 @@
 
     /* Sizes */
     --mail-preview-font-size: 0.875rem;
+    --mail-compose-width: min(380px, 35vw);
+    --mail-compose-height: 50vh;
 }

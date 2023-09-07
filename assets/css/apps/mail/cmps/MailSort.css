@@ -7,26 +7,26 @@
     padding: 5px;
 }
 
-input[name="sentAt"],
-input[name="subject"] {
+.sort-container input[name="sentAt"],
+.sort-container input[name="subject"] {
     visibility: hidden;
 }
 
-input[name="sentAt"]::after,
-input[name="subject"]::after {
+.sort-container input[name="sentAt"]::after,
+.sort-container input[name="subject"]::after {
     visibility: visible;
     font-family: fa-solid;
     content: '\f077';
     cursor: pointer;
 }
 
-input[name="sentAt"]:checked::after,
-input[name="subject"]:checked::after {
+.sort-container input[name="sentAt"]:checked::after,
+.sort-container input[name="subject"]:checked::after {
     content: '\f078';
 }
 
-label.sort-by-date,
-label.sort-by-name {
+.sort-container label.sort-by-date,
+.sort-container label.sort-by-name {
     cursor: pointer;
     margin-inline: 10px;
 }

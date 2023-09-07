@@ -1,14 +1,28 @@
 main.main-mail .compose-mail {
     position: absolute;
     bottom: 10px;
-    right: 10px;
-    width: 30vw;
+    right: 2vw;
+    width: var(--mail-compose-width);
+    height: var(--mail-compose-height);
     display: flex;
     flex-direction: column;
+    box-shadow: -2px -2px 15px #31313140;
+    border-radius: 15px;
 }
 
 main.main-mail .compose-mail .controls {
     background-color: var(--google-light-cyan);
+    padding: 10px;
+    border-radius: 15px 15px 0 0;
+}
+
+.compose-mail input,
+.compose-mail textarea {
+    font-family: GoogleSans, Roboto, sans-serif;
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: .875rem;
 }
 
 .compose-mail .controls button.close {
@@ -16,15 +30,17 @@ main.main-mail .compose-mail .controls {
     background-color: transparent;
 }
 
-.mail-mail .compose-mail input {
-    width: 100%;
+.compose-mail input {
+    border-bottom: 1px solid var(--google-grey);
 }
 
-.mail-mail .compose-mail span.new-msg {
+.compose-mail span.new-msg {
     font-size: var(--mail-preview-font-size);
+    font-weight: 700;
 }
+
 
 .compose-mail .msg-body {
-    height: 25vh;
+    height: 100%;
     resize: none;
 }

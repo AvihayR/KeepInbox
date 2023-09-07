@@ -29,7 +29,7 @@ export function MailCompose({ setCompose, setMails }) {
         return (
             <div className="controls flex space-between align-start">
                 <span className="new-msg">New Message</span>
-                <button className="close" onClick={closeCompose}>X</button>
+                <button className="close google-btn x-mark" onClick={closeCompose}></button>
             </div>
         )
     }
