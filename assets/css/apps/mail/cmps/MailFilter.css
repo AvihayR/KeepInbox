@@ -1,6 +1,7 @@
 .mail-list-container .filter-container {
     gap: 1rem;
     align-items: center;
+    margin-block-end: 15px;
 }
 
 .mail-list-container .filter-by-text {

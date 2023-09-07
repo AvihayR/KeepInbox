@@ -21,18 +21,16 @@ export function MailSort({ sortBy, setSortBy }) {
         }
 
         setSortBy({ [field]: value })
-        console.log(field, value)
-        // setFilterByToEdit(prevFilter => ({ ...prevFilter, [field]: value }))
     }
 
     return (
         <section className="sort-container">
             <label className="sort-by-name">
-                Subject:
+                Subject
                 <input name="subject" checked={sortBy.subject} type="checkbox" onChange={handleChange} />
             </label>
             <label className="sort-by-date">
-                Date:
+                Date
                 <input name="sentAt" checked={sortBy.sentAt} type="checkbox" onChange={handleChange} />
             </label>
 

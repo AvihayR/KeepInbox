@@ -1,0 +1,31 @@
+.mail-list-container .sort-container {
+    display: flex;
+    border-block-end: 1px solid var(--google-grey);
+    background-color: var(--google-transparent);
+    border-radius: 10px 10px 0 0;
+    border: 1px solid var(--google-light-grey);
+    padding: 5px;
+}
+
+input[name="sentAt"],
+input[name="subject"] {
+    visibility: hidden;
+}
+
+input[name="sentAt"]::after,
+input[name="subject"]::after {
+    visibility: visible;
+    font-family: fa-solid;
+    content: '\f077';
+}
+
+input[name="sentAt"]:checked::after,
+input[name="subject"]:checked::after {
+    content: '\f078';
+}
+
+label.sort-by-date,
+label.sort-by-name {
+    cursor: pointer;
+    margin-inline: 10px;
+}

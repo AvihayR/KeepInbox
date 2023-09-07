@@ -1,13 +1,12 @@
 header {
     background: var(--google-white);
-    border-bottom: 5px solid white;
 }
 
 .app-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
+    padding: 15px 0;
 }
 
 .app-header h2.logo {

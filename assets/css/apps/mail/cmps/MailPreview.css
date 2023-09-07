@@ -4,10 +4,15 @@
     align-items: center;
     padding-block: 10px;
     border-block-end: 0.5px solid #c4c7c5;
-    background-color: var(--google-transparent);
+    border-inline: 0.5px solid var(--google-light-grey);
+    background-color: white;
     font-size: var(--mail-preview-font-size);
     font-weight: 700;
     cursor: pointer;
+}
+
+.mail-list-container .mail-list .mail-preview-container:last-of-type {
+    border-radius: 0 0 10px 10px;
 }
 
 .mail-list .mail-preview-container span.mail-from {
