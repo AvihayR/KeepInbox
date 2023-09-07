@@ -1,23 +1,121 @@
-.note-edit form {
-    text-align: center;
-    font-size: 1.5em;
-}
-
-.note-edit form input {
-    margin-block: 15px;
+.note-edit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    margin: 0;
+  }
+  
+  .note-edit .note-type-toggle {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .note-edit .note-type-toggle button {
+    background-color: var(--google-yellow);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .note-edit  .note-type-toggle button.active {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+  }
+  
+  .note-edit  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .note-edit  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .note-edit  button {
+    background-color: #007bff;
+    color: #fff;
     border: none;
-    outline: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 5px;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .note-edit  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .note-edit  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .note-edit li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+  }
+  
+  .note-edit li button {
+    background-color: #ff6b6b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .note-edit  li button:hover {
+    background-color: #ff4f4f;
+  }
+
+.file-input-label {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
     font-size: 16px;
-    transition: background-color .4s;
+    transition: background-color 0.3s ease-in-out;
 }
 
-.note-edit button {
-background: none;
-border: none;
+
+.file-input {
+    display: none;
 }
 
-.note-edit form input:focus {
-    /* background-color: var(--google-light-yellow); */
+.file-input-label {
+    margin-block: 15px;
 }
+
+.file-input-container {
+    text-align: center;
+}
+
+.add-todo-container {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+  }
+  
+  .add-todo-input {
+    flex-grow: 1;
+  }
+  
+  .todos-btn {
+    margin-left: 8px;
+    margin-block-end: 10px;
+  }
