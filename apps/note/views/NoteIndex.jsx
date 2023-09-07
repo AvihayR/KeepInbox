@@ -1,3 +1,4 @@
+import { utilService } from "../../../services/util.service.js"
 import { NoteFilter } from "../cmps/NoteFilter.jsx"
 import { NoteList } from "../cmps/NoteList.jsx"
 import { noteService } from "../services/note.service.js"
@@ -52,12 +53,26 @@ export function NoteIndex() {
     }
   }
 
+  function onDuplicateNote(note) {
+
+    const { id, ...duplicatedNote } = note
+
+    duplicatedNote.isPinned = false
+
+
+    noteService.save(duplicatedNote)
+        .then((savedNote) => {
+            setNotes(prevNotes => [...prevNotes, savedNote])
+          })
+          .catch(err => console.log('err', err))
+}
+
   if (!notes) return <div>Loading...</div>
   return (
     <section className="note-index">
       <NoteFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
       <NoteEdit setNotes={setNotes} />
-      <NoteList notes={notes} onPinNote={onPinNote} onRemoveNote={onRemoveNote} onChangeColor={onChangeColor} />
+      <NoteList notes={notes} onDuplicateNote={onDuplicateNote} onPinNote={onPinNote} onRemoveNote={onRemoveNote} onChangeColor={onChangeColor} />
     </section>
   )
   //TODO: render NotePreview that allow viewing the nots, preview and also changing color,pin etc...
