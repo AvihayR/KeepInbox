@@ -30,13 +30,6 @@ const email = {
     to: 'michaelscott@theoffice.com'
 }
 
-// const eMailsDemoData = {
-//     inbox: [...demoData],
-//     sent: [],
-//     trash: [],
-//     draft: []
-// }
-
 const criteria = {
     status: 'inbox/sent/trash/draft',
     txt: 'puki', // no need to support complex text search

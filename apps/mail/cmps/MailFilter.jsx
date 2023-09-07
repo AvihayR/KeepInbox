@@ -40,7 +40,7 @@ export function MailFilter({ filterBy, onSetFilterBy }) {
     return (
         <div className="filter-container flex">
             <input className="filter-by-text" type="text" data-name='txt' placeholder="Search mail" title="Search a mail via text" onChange={handleChange} />
-            <button className="filter-by-read google-btn" onClick={toggleModal}>
+            <button className="filter-by-read google-btn" title="Filter mail options" onClick={toggleModal}>
                 {isModalOpen && renderDropDown()}
             </button>
         </div>

@@ -5,7 +5,7 @@ export function DynamicButton({ cmpType, cb }) {
     function decideButton() {
         switch (cmpType) {
             case 'remove':
-                return <button className="google-btn remove" onClick={cb}></button>
+                return <button className="google-btn remove" title="Remove this mail" onClick={cb}></button>
         }
     }
 

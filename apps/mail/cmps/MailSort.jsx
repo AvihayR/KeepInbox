@@ -25,13 +25,13 @@ export function MailSort({ sortBy, setSortBy }) {
 
     return (
         <section className="sort-container">
-            <label className="sort-by-name">
+            <label className="sort-by-name" title={sortBy.subject ? 'Sort by subject - Ascending' : 'Sort by subject - Descending'}>
                 Subject
-                <input name="subject" checked={sortBy.subject} type="checkbox" onChange={handleChange} />
+                <input name="subject" type="checkbox" onChange={handleChange} />
             </label>
-            <label className="sort-by-date">
+            <label className="sort-by-date" title={sortBy.sentAt ? 'Sort by date - Oldest' : 'Sort by date - Newest'}>
                 Date
-                <input name="sentAt" checked={sortBy.sentAt} type="checkbox" onChange={handleChange} />
+                <input defaultChecked={true} name="sentAt" type="checkbox" onChange={handleChange} />
             </label>
 
         </section>
