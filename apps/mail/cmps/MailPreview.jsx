@@ -2,15 +2,21 @@ import { mailService } from "../services/mail.service.js"
 import { utilService } from "../../../services/util.service.js"
 import { DynamicButton } from "./DynamicButton.jsx";
 
-const { Fragment } = React
 const { useNavigate, useParams } = ReactRouterDOM
 
-export function MailPreview({ mail }) {
+export function MailPreview({ mail, setMails }) {
     const navigate = useNavigate()
 
     function readMail() {
         mail.isRead = true
         mailService.save(mail)
+    }
+
+    function removeMail(ev) {
+        ev.stopPropagation()
+        mailService.remove(mail.id)
+            .then(setMails(prevMails => prevMails.filter(prevMail => prevMail !== mail)))
+        // console.log('remove', mail)
     }
 
     return (
@@ -22,7 +28,7 @@ export function MailPreview({ mail }) {
             <span className="mail-subject">{mail.subject}</span>
             <span className="mail-time">
                 {/* <button className="remove"></button> */}
-                <DynamicButton cmpType='remove' mail={mail} />
+                <DynamicButton cmpType='remove' cb={removeMail} />
                 {utilService.formatDate(mail.sentAt)}
             </span>
         </li>

@@ -6,7 +6,8 @@ export const mailService = {
     query,
     get,
     save,
-    createMail
+    remove,
+    createMail,
 }
 
 const MAIL_KEY = 'mailDB'
@@ -82,4 +83,8 @@ function save(mail) {
     } else {
         return storageService.post(MAIL_KEY, mail)
     }
+}
+
+function remove(mailId) {
+    return storageService.remove(MAIL_KEY, mailId)
 }

@@ -1,15 +1,12 @@
-export function DynamicButton({ cmpType, mail }) {
+import { mailService } from "../services/mail.service.js"
+
+export function DynamicButton({ cmpType, cb }) {
 
     function decideButton() {
         switch (cmpType) {
             case 'remove':
-                return <button className="remove" onClick={remove}></button>
+                return <button className="remove" onClick={cb}></button>
         }
-    }
-
-    function remove(ev) {
-        ev.stopPropagation()
-        console.log('remove', mail)
     }
 
     return (
