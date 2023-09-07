@@ -25,7 +25,7 @@ export function NoteList({ notes, onRemoveNote, onChangeColor, onPinNote, onDupl
         <div className="note-list">
             {sortedNotes.map(note => (
                 <div className="note-container" key={note.id} style={{ backgroundColor: note.style.backgroundColor }} >
-                    <button title="Pin note" className="pin-icon" onClick={() => { onPinNote(note.id) }}>{note.isPinned ? <i className="fa-solid fa-thumbtack"></i> : <i className="fa-solid fa-thumbtack" style={{color: 'rgba(89, 85, 98, 0.4)'}}></i> }</button>
+                    <button title="Pin note" className="pin-icon" onClick={() => { onPinNote(note.id) }}>{note.isPinned ? <i className="fa-solid fa-thumbtack" ></i>  : <i className="fa-solid fa-thumbtack" style={{color: 'rgba(89, 85, 98, 0.4)'}}></i> }</button>
                     <NotePreview note={note} />
                     <section>
                         <button title="Choose color" onClick={(event) => handleColorButtonClick(note.id, event)}><i className="fa-solid fa-palette"></i></button>

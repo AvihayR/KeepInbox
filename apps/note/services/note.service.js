@@ -18,7 +18,7 @@ var demoNotes = [
         }
     },
     {
-        id: 'n103',
+        id: 'n102',
         createdAt: 1112255,
         type: 'NoteTxt',
         isPinned: true,
@@ -26,11 +26,11 @@ var demoNotes = [
             backgroundColor: getRandomColor(colors)
         },
         info: {
-            txt: 'Here we go!'
+            txt: 'For tomorrow the code for the building is: 8456#'
         }
     },
     {
-        id: 'n102',
+        id: 'n103',
         type: 'NoteImg',
         isPinned: true,
         info: {
@@ -55,11 +55,21 @@ var demoNotes = [
         style: {
             backgroundColor: getRandomColor(colors)
         }
-
-
     },
     {
         id: 'n105',
+        type: 'NoteImg',
+        isPinned: false,
+        info: {
+            url: 'https://i0.wp.com/djalia-dz.com/en/wp-content/uploads/2023/08/Top-10-Tourist-Destinations-for-Summer-Vacations-Worldwide.jpg',
+            title: 'Last summer trip'
+        },
+        style: {
+            backgroundColor: getRandomColor(colors)
+        }
+    },
+    {
+        id: 'n106',
         type: 'NoteImg',
         isPinned: false,
         info: {
@@ -71,7 +81,7 @@ var demoNotes = [
         }
     },
     {
-        id: 'n106',
+        id: 'n107',
         type: 'NoteTodos',
         isPinned: false,
         info: {
@@ -85,11 +95,51 @@ var demoNotes = [
         style: {
             backgroundColor: getRandomColor(colors)
         }
-
-
+    },
+    {
+        id: 'n108',
+        type: 'NoteImg',
+        isPinned: true,
+        info: {
+            url: 'https://media0.giphy.com/media/11ZSwQNWba4YF2/giphy.gif?cid=ecf05e47cwp5ncwdzmspusyyw2t8z5hcy5mlhffl9mq2djnw&ep=v1_gifs_related&rid=giphy.gif&ct=g',
+            title: ''
+        },
+        style: {
+            backgroundColor: getRandomColor(colors)
+        }
+    },
+    {
+        id: 'n109',
+        createdAt: 1112222,
+        type: 'NoteTxt',
+        isPinned: true,
+        style: {
+            backgroundColor: getRandomColor(colors)
+        },
+        info: {
+            txt: 'Don\'t forget to bring a birthday present for Daniel'
+        }
+    },
+    {
+        id: 'n1110',
+        type: 'NoteTodos',
+        isPinned: true,
+        info: {
+            title: 'Shop List',
+            todos: [
+                { txt: 'Bamba', doneAt: null },
+                { txt: 'Kinder Bueno', doneAt: null },
+                { txt: 'Milk', doneAt: null },
+                { txt: 'Fruits', doneAt: null },
+                { txt: 'Milki', doneAt: null },
+            ]
+        },
+        style: {
+            backgroundColor: getRandomColor(colors)
+        }
     },
 ]
-
+ 
 _createNotes()
 
 export const noteService = {
@@ -97,10 +147,13 @@ export const noteService = {
     get,
     remove,
     save,
-    getEmptyNote,
+    getEmptyTxtNote,
+    getEmptyImgNote,
+    getEmptyTodosNote,
     getDefaultFilter,
     savePinnedNotes,
     loadPinnedNotes,
+    getRandomColor,
 }
 
 function query(filterBy = {}) {
@@ -139,7 +192,7 @@ function save(note) {
     }
 }
 
-function getEmptyNote() {
+function getEmptyTxtNote() {
     return {
         createdAt: null,
         type: 'NoteTxt',
@@ -150,6 +203,39 @@ function getEmptyNote() {
         info: {
             txt: ''
         },
+    }
+}
+
+function getEmptyImgNote() {
+    return {
+        createdAt: null,
+        type: 'NoteImg',
+        isPinned: false,
+        style: {
+            backgroundColor: getRandomColor(colors)
+        },
+        info: {
+            url: '',
+            title: ''
+        },
+    }
+}
+
+function getEmptyTodosNote() {
+    return {
+        type: 'NoteTodos',
+        isPinned: false,
+        info: {
+            title: 'TODO:',
+            todos: [
+                { txt: 'Go for a walk', doneAt: null },
+                { txt: 'To do laundry', doneAt: null },
+            ]
+        },
+        style: {
+            backgroundColor: getRandomColor(colors)
+        }
+
     }
 }
 

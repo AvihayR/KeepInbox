@@ -1,15 +1,15 @@
 .note-list {
     padding: 15px 0 0;
     list-style: none;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 15px;
+    display: block;
+    columns: 6 250px;
+    align-items: start;
 }
 
 .note-list .note-container {
     position: relative;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
@@ -18,6 +18,11 @@
     transition: background-color .6s;
     overflow: hidden;
     padding: 8px 12px;
+    min-height: 120px;
+}
+
+.note-list .note-container:not(:first-of-type) {
+    margin-block-start: 15px;
 }
 
 .note-list .note-container:hover {

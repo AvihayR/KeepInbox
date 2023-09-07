@@ -4,12 +4,12 @@ import { NoteList } from "../cmps/NoteList.jsx"
 import { noteService } from "../services/note.service.js"
 import { NoteEdit } from "./NoteEdit.jsx"
 
+
 const { useState, useEffect } = React
 
 export function NoteIndex() {
 
   const [notes, setNotes] = useState(null)
-  const [pinnedNotes, setPinnedNotes] = useState([])
   const [filterBy, setFilterBy] = useState(noteService.getDefaultFilter())
 
   useEffect(() => {
@@ -61,11 +61,11 @@ export function NoteIndex() {
 
 
     noteService.save(duplicatedNote)
-        .then((savedNote) => {
-            setNotes(prevNotes => [...prevNotes, savedNote])
-          })
-          .catch(err => console.log('err', err))
-}
+      .then((savedNote) => {
+        setNotes(prevNotes => [...prevNotes, savedNote])
+      })
+      .catch(err => console.log('err', err))
+  }
 
   if (!notes) return <div>Loading...</div>
   return (
@@ -75,5 +75,4 @@ export function NoteIndex() {
       <NoteList notes={notes} onDuplicateNote={onDuplicateNote} onPinNote={onPinNote} onRemoveNote={onRemoveNote} onChangeColor={onChangeColor} />
     </section>
   )
-  //TODO: render NotePreview that allow viewing the nots, preview and also changing color,pin etc...
 }
