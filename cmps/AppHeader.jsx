@@ -6,14 +6,14 @@ export function AppHeader() {
 
     return <header className="app-header">
         <Link to="/">
-            <h2> Keep<span className="color-header">Inbox</span><i className="fa-solid fa-envelopes-bulk"></i></h2>
+            <h2 className="logo"> <span className="keep">Keep</span><span className="in">In</span><span className="box">box</span></h2>
         </Link>
 
         <nav>
-                <NavLink to="/">Home</NavLink>
-                <NavLink to="/about">About</NavLink>
-                <NavLink to="/mail">Mail</NavLink>
-                <NavLink to="/note">Note</NavLink>
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/about">About</NavLink>
+            <NavLink to="/mail">Mail</NavLink>
+            <NavLink to="/note">Note</NavLink>
         </nav>
     </header>
 }
