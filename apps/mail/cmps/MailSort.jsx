@@ -1,27 +1,41 @@
 const { useState } = React
 
-export function MailSort({ setSortBy }) {
+export function MailSort({ sortBy, setSortBy }) {
 
     function handleChange({ target }) {
         const field = target.name
         let value = target.value
 
-        setSortBy(prevSort => ({ ...prevSort, [field]: value }))
+        switch (target.type) {
+            case 'number':
+            case 'range':
+                value = +value || ''
+                break;
+
+            case 'checkbox':
+                value = target.checked
+                break
+
+            default:
+                break;
+        }
+
+        setSortBy({ [field]: value })
+        console.log(field, value)
+        // setFilterByToEdit(prevFilter => ({ ...prevFilter, [field]: value }))
     }
 
     return (
         <section className="sort-container">
-            <select name="subject" onChange={handleChange}>
-                <option value="">Subject</option>
-                <option value="descending">A-Z</option>
-                <option value="ascending">Z-A</option>
-            </select>
+            <label className="sort-by-name">
+                Subject:
+                <input name="subject" checked={sortBy.subject} type="checkbox" onChange={handleChange} />
+            </label>
+            <label className="sort-by-date">
+                Date:
+                <input name="sentAt" checked={sortBy.sentAt} type="checkbox" onChange={handleChange} />
+            </label>
 
-            <select name="sentAt" onChange={handleChange}>
-                <option value="">Date</option>
-                <option value="descending">Newest</option>
-                <option value="ascending">Oldest</option>
-            </select>
         </section>
     )
 

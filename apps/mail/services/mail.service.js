@@ -109,5 +109,5 @@ function getDefaultFilter() {
 }
 
 function getDefaultSort() {
-    return { subject: '', sentAt: null }
+    return { subject: null, sentAt: true }
 }

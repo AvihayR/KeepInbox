@@ -12,19 +12,37 @@ export function MailIndex() {
     const [mails, setMails] = useState(null)
     const [isCompose, setCompose] = useState(false)
     const [filterByToEdit, setFilterBy] = useState(mailService.getDefaultFilter())
-    const [sortByToEdit, setSortBy] = useState(mailService.getDefaultSort())
+    const [sortBy, setSortBy] = useState(mailService.getDefaultSort())
 
     useEffect(() => {
         mailService.query(filterByToEdit)
             .then(sortMails)
             .then(setMails)
             .catch(err => console.log('Error:', err))
-    }, [filterByToEdit, sortByToEdit])
+    }, [filterByToEdit, sortBy])
+
 
     function sortMails(mails) {
-        if (sortByToEdit.title !== '') {
-            return mails.sort((mail1, mail2) => mail1.subject.localeCompare(mail2.subject) * sortByToEdit.title)
-        } else return mails
+        if (sortBy.subject) {
+            mails = mails.sort((mail1, mail2) => mail1.subject.localeCompare(mail2.subject))
+        } else if (sortBy.subject === false) {
+            mails = mails.sort((mail1, mail2) => mail2.subject.localeCompare(mail1.subject))
+        } else if (sortBy.sentAt) {
+            mails = mails.sort((mail1, mail2) => mail2.sentAt - mail1.sentAt)
+        } else if (sortBy.sentAt === false) {
+            mails = mails.sort((mail1, mail2) => mail1.sentAt - mail2.sentAt)
+
+        }
+
+        return mails
+    }
+
+    function setBookSort(sortBy) {
+        if (sortBy.name !== undefined) {
+            gBooks.sort((book1, book2) => book1.name.localeCompare(book2.name) * sortBy.name)
+        } else if (sortBy.price !== undefined) {
+            gBooks.sort((book1, book2) => (book1.price - book2.price) * sortBy.price)
+        }
     }
 
     function onSetFilterBy(filterBy) {
@@ -37,7 +55,7 @@ export function MailIndex() {
             <MailAside mails={mails} setCompose={setCompose} />
             <section className="mail-list-container">
                 <MailFilter filterBy={filterByToEdit} onSetFilterBy={onSetFilterBy} />
-                <MailSort setSortBy={setSortBy} />
+                <MailSort sortBy={sortBy} setSortBy={setSortBy} />
                 <MailList mails={mails} setMails={setMails} />
             </section>
             {isCompose && <MailCompose setCompose={setCompose} setMails={setMails} />}

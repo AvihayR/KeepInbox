@@ -1,1 +1,8 @@
-/*  */
+/* .mail-list-container .sort-container .sort-by-name {
+    opacity: 0;
+}
+
+.mail-list-container .sort-container .sort-by-name::after {
+    content: 'aaa';
+    opacity: 1;
+} */
