@@ -1,5 +1,6 @@
+const { useState,useEffect } = React
+
 export function NotePreview({ note }) {
-    
 
     function DynamicCmp() {
         switch (note.type) {
@@ -46,20 +47,48 @@ function NoteImg({ info }) {
 
 function NoteTodos({ info }) {
     const { title, todos } = info
-    return (
+    const [completedTodos, setCompletedTodos] = useState(
+        JSON.parse(localStorage.getItem('completedTodos')) || []
+      )
+
+      function toggleTodoStatus(index) {
+        const updatedCompletedTodos = [...completedTodos];
+        if (updatedCompletedTodos.includes(index)) {
+          // If it's in completed todos, remove it
+          updatedCompletedTodos.splice(updatedCompletedTodos.indexOf(index), 1);
+        } else {
+          // If it's not in completed todos, add it
+          updatedCompletedTodos.push(index);
+        }
+        setCompletedTodos(updatedCompletedTodos);
+    
+        // Save completed todos to localStorage
+        localStorage.setItem('completedTodos', JSON.stringify(updatedCompletedTodos));
+      }
+      
+      function isTodoCompleted(index) {
+        return completedTodos.includes(index);
+      }
+
+      return (
         <div className="note-todos">
-            <h4>{title}</h4>
-            <ul>
-                {todos.map(todo => (
-                    <li key={todo.txt}>
-                        <input type="checkbox" id={todo.txt} />
-                        <label htmlFor={todo.txt}>{todo.txt}</label>
-                    </li>
-                ))}
-            </ul>
+          <h4>{title}</h4>
+          <ul>
+            {todos.map((todo, index) => (
+              <li key={index} className={isTodoCompleted(index) ? "todo-done" : ""}>
+                <input
+                  type="checkbox"
+                  id={todo.txt}
+                  checked={isTodoCompleted(index)}
+                  onChange={() => toggleTodoStatus(index)}
+                />
+                <label htmlFor={todo.txt}>{todo.txt}</label>
+              </li>
+            ))}
+          </ul>
         </div>
-    )
-}
+      );
+    }
 
 function NoteVideo({ info }) {
     const { videoUrl } = info

@@ -221,7 +221,7 @@ export function NoteEdit({ setNotes }) {
                         onClick={switchToImgNote}
                         className={selectedNoteType === "img" ? "active" : ""}
                     >
-                        Add a image
+                        Add an image
                     </button>
                     <button
                         type="button"

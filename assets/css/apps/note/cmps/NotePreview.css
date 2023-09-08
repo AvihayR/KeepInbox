@@ -31,6 +31,12 @@
     margin-bottom: 8px;
 }
 
+.todo-done {
+    text-decoration: line-through;
+    color: #888;
+    font-style: italic;
+}
+
 @media (max-width: 530px) {
     .note-list {
         display: flex;
