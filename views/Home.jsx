@@ -25,8 +25,8 @@ export function Home() {
             setCurrentSentence((prevSentence) => (prevSentence + 1) % sentences.length)
         }, 3000)
 
-        return () => clearTimeout(timer);
-    }, [currentSentence, sentences]);
+        return () => clearTimeout(timer)
+    }, [currentSentence, sentences])
 
     return (
         <section className="home">
@@ -45,5 +45,5 @@ export function Home() {
                 </div>
             </div>
         </section>
-    );
+    )
 }
