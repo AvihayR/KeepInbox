@@ -2,7 +2,29 @@
 @media (max-width: 660px) {}
 
 /* SMALL */
-@media (min-width: 660px) {}
+@media (min-width: 660px) {
+    /* .mail-list .mail-preview-container {
+        grid-template-columns: 25px minmax(55px, 1fr) 3fr 25px;
+        grid-template-rows: 25px 25px;
+    }
+
+    .mail-list .mail-preview-container .mail-subject {
+        grid-row: 1;
+        grid-column: 3;
+    }
+
+    .mail-list .mail-preview-container .mail-body {
+        grid-column: 1/4;
+        grid-row: 2;
+    }
+
+    .mail-list .mail-preview-container .mail-time {
+        grid-column: 3;
+        grid-row: 1;
+        margin: 0;
+        width: fit-content;
+    } */
+}
 
 /* MEDIUM */
 @media (min-width: 800px) {}
