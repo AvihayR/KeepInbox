@@ -1,1 +1,71 @@
- /* home */
+
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 20px; 
+}
+
+.logo {
+    max-width: 80%; 
+    max-height: auto;
+}
+
+.text-container {
+    text-align: center;
+}
+
+.typing-animation {
+    display: inline-block;
+    font-family: GoogleSans;
+    font-size: 28px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 12em; 
+    animation: typing 3s linear infinite;
+}
+
+@keyframes typing {
+    0% {
+        width: 0;
+
+    }
+    100% {
+        width: 100%;
+        border-right: none; 
+    }
+}
+
+.home-buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.gmail-button,
+.keep-button {
+    display: inline-block;
+    background-color: #4285f4;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.gmail-button:hover,
+.keep-button:hover {
+    background-color: #357ae8;
+}
