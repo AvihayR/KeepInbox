@@ -51,6 +51,22 @@ button.x-mark:after {
     content: '\f00d'
 }
 
+.star {
+    font-family: fa-regular;
+    font-size: .745rem;
+    font-weight: 400;
+    padding: 0.4rem;
+}
+
+.star::after {
+    content: '\f005';
+}
+
+.star.starred::after {
+    font-family: fa-solid;
+    color: var(--google-yellow);
+}
+
 .lower-controls button.mail-send {
     all: unset;
     position: relative;

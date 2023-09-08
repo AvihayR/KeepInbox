@@ -1,7 +1,9 @@
 import { mailService } from "../services/mail.service.js"
 import { utilService } from "../../../services/util.service.js"
 import { RemoveButton } from "./RemoveBtn.jsx";
+import { Star } from "./Star.jsx";
 const { useNavigate, useParams } = ReactRouterDOM
+
 
 export function MailPreview({ mail, setMails }) {
     const navigate = useNavigate()
@@ -16,7 +18,10 @@ export function MailPreview({ mail, setMails }) {
             navigate(`/mail/${mail.id}`)
             readMail()
         }}>
-            <span className="mail-from">{mail.from}</span>
+            <span className="mail-from">
+                <Star mail={mail} setMails={setMails} />
+                {mail.from}
+            </span>
             <span className="mail-subject">{mail.subject}</span>
             <span className="mail-body">{`- ${mail.body}`}</span>
 

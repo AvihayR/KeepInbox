@@ -6,6 +6,7 @@ const demoData = [
         subject: 'Miss you!',
         body: 'Would love to catch up sometimes',
         isRead: false,
+        isStarred: true,
         sentAt: 1551133930600,
         removedAt: null,
         from: 'someone@gmail.com',
