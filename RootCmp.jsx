@@ -12,17 +12,19 @@ import { NoteEdit } from "./apps/note/views/NoteEdit.jsx"
 
 
 export function App() {
-    return <Router>
-        <section className="app">
-            <AppHeader />
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/mail" element={<MailIndex />} />
-                <Route path="/mail/:mailId" element={<MailDetails />} />
-                <Route path="/note" element={<NoteIndex />} />
-                <Route path="/note/:noteId" element={<NoteEdit />} />
-            </Routes>
-        </section>
-    </Router>
+    return (
+        <Router>
+            <section className="app">
+                <AppHeader />
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/mail" element={<MailIndex />} />
+                    <Route path="/mail/:mailId" element={<MailDetails />} />
+                    <Route path="/note" element={<NoteIndex />} />
+                    <Route path="/note/:noteId" element={<NoteEdit />} />
+                </Routes>
+            </section>
+        </Router>
+    )
 }
