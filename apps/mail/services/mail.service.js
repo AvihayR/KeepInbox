@@ -44,6 +44,13 @@ _createMails()
 function query(filterBy = {}) {
     return storageService.query(MAIL_KEY)
         .then(mails => {
+            if (!filterBy.status || filterBy.status === 'inbox') {
+                mails = mails.filter(mail => mail.to === loggedInUser.email)
+            }
+            else if (filterBy.status === 'sent') {
+                mails = mails.filter(mail => mail.to !== loggedInUser.email)
+            }
+
             if (filterBy.txt) {
                 const regex = new RegExp(filterBy.txt, 'i')
                 mails = mails.filter(mail => regex.test(mail.subject))
@@ -56,6 +63,7 @@ function query(filterBy = {}) {
             } else {
                 mails = mails.filter(mail => mail.isRead)
             }
+
 
             return mails
         })
@@ -73,7 +81,7 @@ function createMail({ subject, body, to }) {
     const newEmail = {
         subject,
         body,
-        isRead: false,
+        isRead: true,
         sentAt: Date.now(),
         removedAt: null,
         from: loggedInUser.email,

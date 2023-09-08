@@ -15,7 +15,7 @@ export function MailCompose({ setCompose, setMails }) {
         ev.preventDefault()
         closeCompose(ev)
         mailService.createMail(mailToCompose)
-            .then(sentMail => setMails(prevMailToEdit => [sentMail, ...prevMailToEdit]))
+            // .then(sentMail => setMails(prevMailToEdit => [sentMail, ...prevMailToEdit]))
             .catch(err => console.log('Error: ', err))
     }
 

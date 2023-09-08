@@ -52,7 +52,7 @@ export function MailIndex() {
     if (!mails) return 'Loading...'
     return (
         <main className="main-mail flex">
-            <MailAside mails={mails} setCompose={setCompose} />
+            <MailAside mails={mails} setCompose={setCompose} onSetFilterBy={onSetFilterBy} />
             <section className="mail-list-container">
                 <MailFilter filterBy={filterByToEdit} onSetFilterBy={onSetFilterBy} />
                 <MailSort sortBy={sortBy} setSortBy={setSortBy} />

@@ -55,7 +55,7 @@ button.x-mark:after {
     all: unset;
     position: relative;
     font-size: .875rem;
-    padding: 0.4em 1.1em;
+    padding: 0.6em 1.2em;
     background-color: var(--google-blue);
     color: white;
     border-radius: 2em;
@@ -68,7 +68,7 @@ button.x-mark:after {
 .lower-controls button.mail-send:after {
     position: absolute;
     right: 10px;
-    padding: 2.5px 0;
+    padding: 3px 0;
     font-family: fa-solid;
     font-size: 0.9em;
     content: '\f061';
@@ -78,11 +78,11 @@ button.x-mark:after {
 
 .lower-controls button.mail-send:hover {
     box-shadow: 1px 4px 20px #5696fc7c;
-    padding-right: 1.3rem;
+    padding-right: 1.4rem;
 }
 
 .lower-controls button.mail-send:hover:after {
     opacity: 1;
-    right: 5px;
+    right: 7px;
 
 }

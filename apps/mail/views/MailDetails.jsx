@@ -1,5 +1,6 @@
 import { mailService } from "../services/mail.service.js"
 import { utilService } from "../../../services/util.service.js"
+
 const { useState, useEffect } = React
 const { useParams, Link, useNavigate, Outlet, useLocation } = ReactRouterDOM
 
@@ -15,6 +16,14 @@ export function MailDetails() {
             .then(setMail)
     }, [])
 
+    function renderMailTopControls() {
+        return (
+            <section className="top-controls">
+                <Link to='/mail' className="google-btn go-back" title='Go back to inbox'></Link>
+            </section>
+        )
+    }
+
     function renderMailHeader() {
         return (
             <section className="mail-details-header">
@@ -22,14 +31,6 @@ export function MailDetails() {
                 <span className="mail-to"> to {mail.to}</span>
                 <span className="mail-time">{utilService.formatDate(mail.sentAt)}</span>
 
-            </section>
-        )
-    }
-
-    function renderMailTopControls() {
-        return (
-            <section className="top-controls">
-                <Link to='/mail' className="google-btn go-back" title='Go back to inbox'></Link>
             </section>
         )
     }
