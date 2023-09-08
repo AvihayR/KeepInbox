@@ -1,1 +1,30 @@
-/*  */
+.app .mail-container {
+    background-color: var(--google-white);
+    height: 85vh;
+    margin-block-start: 1.5rem;
+    margin-inline: 1rem;
+    border-radius: 1rem;
+    padding: 0.5em;
+}
+
+.app .mail-container .top-controls {
+    display: flex;
+}
+
+.app .mail-container .subject-header {
+    border-block-end: 1px solid var(--google-light-grey);
+    padding-block: 5px;
+}
+
+.app .mail-container .mail-details-header {
+    display: flex;
+    gap: 8px;
+    font-size: 0.875em;
+    color: var(--google-black);
+    padding-block: 5px;
+    border-block-end: 1px solid var(--google-light-grey);
+}
+
+.app .mail-container .mail-content {
+    width: 80%;
+}

@@ -51,6 +51,7 @@
     margin-inline-start: auto;
     margin-inline-end: 10px;
     white-space: nowrap;
+    font-weight: 400;
 }
 
 .mail-list-container .mail-list .mail-preview-container.read {

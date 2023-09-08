@@ -19,6 +19,13 @@ button.remove::after {
     content: '\f2ed';
 }
 
+.go-back {
+    font-family: fa-solid;
+}
+
+.go-back::after {
+    content: '\f060';
+}
 
 button.plus {
     font-family: fa-regular;
@@ -36,7 +43,7 @@ button.x-mark {
     transition: color 0.2s;
 }
 
-button.x-mark:hover {
+button button.x-mark:hover {
     color: var(--google-red);
 }
 

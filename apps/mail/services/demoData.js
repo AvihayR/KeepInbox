@@ -15,13 +15,13 @@ const demoData = [
         id: 'e102',
         subject: 'קבלת רכישה ב-Wolt',
         body: `
-        אביחי, איזה כיף שהזמנת
+        פוקי, איזה כיף שהזמנת
 
         הנה הקבלה שלך:
         טורק לחמג׳ון
 
         ספטמבר 05, 2023, 21:38
-        מס' הזמנה: 64f76caasdasd937f94ccb68a1abed
+        מס' הזמנה: 64 f76caasdasd937f94ccb68a1abed
         סה"כ	ILS 121.00
         מסמכי ההזמנה שלך מצורפים למייל זה. אם יש לך שאלות נוספות, אפשר לפנות אלינו דרך הצ'אט
         `,
@@ -43,7 +43,7 @@ const demoData = [
         החזרות חינם והחזר כספי מלא עד 30 יום`
         ,
         isRead: false,
-        sentAt: 1551133930500,
+        sentAt: 1694114757630,
         removedAt: null,
         from: 'adidas',
         to: 'michaelscott@theoffice.com'
@@ -63,21 +63,21 @@ const demoData = [
         id: 'e105',
         subject: 'Our eSIM is back in Singapore 🦩',
         body: `
-        שלנו לסינגפור חוזר eSIM-ה
-        אלו מ-Airalo 👋
+        Returning to Singapore with our eSIM
+        From Airalo 👋
         
-        מתכננים טיול לסינגפור? איתנו תישארו מכוסים. הישארו מחוברים והימנעו מחשבונות גבוהים עם ה-eSIM שלנו לסינגפור.
+        Planning a trip to Singapore? Stay covered with us. Stay connected and avoid high bills with our eSIM for Singapore.
         
-        ביחרו מהתוכניות השונות, המתחילות בתעריף של US$4.50:
-        7 ימים עם 1GB
-        15 יום עם 2GB
-        30 יום עם 3GB
-        30 יום עם 5GB
-        30 יום עם 10GB
+        Choose from various plans, starting at a rate of US$4.50:
+        7 days with 1GB
+        15 days with 2GB
+        30 days with 3GB
+        30 days with 5GB
+        30 days with 10GB
         `
         ,
         isRead: false,
-        sentAt: 1551122930594,
+        sentAt: Date.now(),
         removedAt: null,
         from: 'mailing@airalo.com',
         to: 'michaelscott@theoffice.com'
@@ -100,7 +100,7 @@ const demoData = [
         `
         ,
         isRead: false,
-        sentAt: Date.now(),
+        sentAt: 1551122930594,
         removedAt: null,
         from: 'hello@tryhackme.com',
         to: 'michaelscott@theoffice.com'
@@ -166,7 +166,7 @@ const demoData = [
         `
         ,
         isRead: false,
-        sentAt: 1694114757630,
+        sentAt: 1551133930500,
         removedAt: null,
         from: 'Vitaly',
         to: 'michaelscott@theoffice.com'

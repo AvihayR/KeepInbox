@@ -19,7 +19,7 @@ export function MailDetails() {
         return (
             <section className="mail-details-header">
                 <span className="mail-from">From {mail.from}</span>
-                <span className="mail-to">To {mail.to}</span>
+                <span className="mail-to"> to {mail.to}</span>
                 <span className="mail-time">{utilService.formatDate(mail.sentAt)}</span>
 
             </section>
@@ -28,7 +28,9 @@ export function MailDetails() {
 
     function renderMailTopControls() {
         return (
-            <Link to='/mail'>Back</Link>
+            <section className="top-controls">
+                <Link to='/mail' className="google-btn go-back" title='Go back to inbox'></Link>
+            </section>
         )
     }
 
@@ -36,11 +38,11 @@ export function MailDetails() {
     return (
         <section className="mail-container">
             {renderMailTopControls()}
-            <h1>{mail.subject}</h1>
+            <h1 className="subject-header">{mail.subject}</h1>
             {renderMailHeader()}
 
             <article className="mail-content">
-                {mail.body}
+                <p>{mail.body}</p>
             </article>
         </section>
     )
