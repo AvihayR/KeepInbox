@@ -3,6 +3,7 @@
     font-family: 'GoogleSans', 'Roboto', 'sans-serif';
     font-weight: 700;
     margin-inline-start: 8px;
+    font-size: 0.875rem;
 }
 
 .main-mail aside .compose {
@@ -33,7 +34,8 @@
 .main-mail aside li {
     list-style: none;
     display: flex;
-    padding: 0.3125em 0.4em;
+    padding: 0.3125em 0.5em;
+    cursor: pointer;
 }
 
 .main-mail aside li:hover {

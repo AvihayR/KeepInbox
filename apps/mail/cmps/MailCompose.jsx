@@ -37,8 +37,8 @@ export function MailCompose({ setCompose, setMails }) {
     function renderComposeAddressSubject() {
         return (
             <Fragment>
-                <input className="recipients" type="email" name="to" placeholder="Recipients" />
-                <input className="subject" type="text" name="subject" placeholder="Subject" />
+                <input className="recipients" type="email" name="to" placeholder="Recipients" required />
+                <input className="subject" type="text" name="subject" placeholder="Subject" required />
             </Fragment>
 
         )
@@ -47,8 +47,8 @@ export function MailCompose({ setCompose, setMails }) {
     function renderComposeFooterControls() {
         return (
             <div className="lower-controls">
-                <button className="send">Send</button>
-                <button className="trash" onClick={closeCompose}>Delete</button>
+                <button className="mail-send">Send</button>
+                <button className="google-btn remove trash" onClick={closeCompose}></button>
             </div>
         )
     }
@@ -57,7 +57,7 @@ export function MailCompose({ setCompose, setMails }) {
         <form action="" className="compose-mail" onSubmit={onSendMail} onChange={handleChange}>
             {renderComposeHeader()}
             {renderComposeAddressSubject()}
-            <textarea className="msg-body" name="body" rows="4" cols="40" placeholder="Enter text...">
+            <textarea className="msg-body" name="body" rows="4" cols="40" placeholder="Enter text..." required>
             </textarea>
             {renderComposeFooterControls()}
         </form>

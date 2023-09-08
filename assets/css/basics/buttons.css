@@ -1,8 +1,9 @@
 .google-btn {
     all: unset;
-    font-size: 1rem;
+    font-size: .875rem;
     padding: 0.5rem;
     border-radius: 5rem;
+    cursor: pointer;
     transition: background-color 0.3s;
 }
 
@@ -28,10 +29,53 @@ button.plus:after {
 }
 
 button.x-mark {
+    font-size: 1rem;
     font-family: fa-solid;
+    padding: 0;
     cursor: pointer;
+    transition: color 0.2s;
+}
+
+button.x-mark:hover {
+    color: var(--google-red);
 }
 
 button.x-mark:after {
     content: '\f00d'
+}
+
+.lower-controls button.mail-send {
+    all: unset;
+    position: relative;
+    font-size: .875rem;
+    padding: 0.4em 1.1em;
+    background-color: var(--google-blue);
+    color: white;
+    border-radius: 2em;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+    cursor: pointer;
+    transition: box-shadow 0.3s, padding 0.3s;
+}
+
+.lower-controls button.mail-send:after {
+    position: absolute;
+    right: 10px;
+    padding: 2.5px 0;
+    font-family: fa-solid;
+    font-size: 0.9em;
+    content: '\f061';
+    opacity: 0;
+    transition: padding 0.3s, opacity 0.3s, right 0.4s;
+}
+
+.lower-controls button.mail-send:hover {
+    box-shadow: 1px 4px 20px #5696fc7c;
+    padding-right: 1.3rem;
+}
+
+.lower-controls button.mail-send:hover:after {
+    opacity: 1;
+    right: 5px;
+
 }
