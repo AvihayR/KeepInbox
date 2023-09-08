@@ -137,7 +137,7 @@ const demoData = [
     {
         id: 'e114',
         subject: 'Hey, where\'s my Trailer?!',
-        body: "This is not funny at all, you better have my trailer back at Trailer park ASAP! \nOr ill call the Police!"
+        body: "This is not funny at all, you better have my trailer back at the trailer park ASAP! \nor ill call the Police!"
         ,
         isRead: false,
         sentAt: 1682324647000,

@@ -8,13 +8,13 @@
 
 .main-mail aside .compose {
     font-size: 1rem;
-    height: 3.5rem;
+    height: 3rem;
+    min-width: 2.8125em;
     border-radius: 1rem;
     outline: none;
     border: none;
     background-color: var(--google-sky);
     color: var(--google-dark-grey);
-    padding: 5px 15px;
     transition: box-shadow 0.3s, color 0.3s;
     margin-bottom: 0.5em;
 }
@@ -36,6 +36,9 @@
     display: flex;
     padding: 0.5em;
     cursor: pointer;
+    gap: 5px;
+    font-size: .9em;
+    letter-spacing: 0.7px;
 }
 
 .main-mail aside li:hover {
@@ -45,4 +48,31 @@
 
 .main-mail aside li .unread-indicator {
     margin-inline-start: auto;
+    color: var(--google-blue);
+}
+
+aside .inbox-logo::before {
+    font-family: fa-solid;
+    content: '\f01c';
+}
+
+
+aside .sent-logo::before {
+    font-family: fa-regular;
+    content: '\f1d8';
+}
+
+aside .starred-logo::before {
+    font-family: fa-regular;
+    content: '\f005';
+}
+
+aside .drafts-logo::before {
+    font-family: fa-regular;
+    content: '\f15b';
+}
+
+aside .trash-logo::before {
+    font-family: fa-regular;
+    content: '\f2ed';
 }

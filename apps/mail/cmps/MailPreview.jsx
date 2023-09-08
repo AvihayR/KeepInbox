@@ -16,10 +16,12 @@ export function MailPreview({ mail, setMails }) {
     }
 
     return (
-        <li className={`mail-preview-container ${mail.isRead ? 'read' : ''}`} onMouseOver={() => { setIsOverPreview(true) }} onMouseLeave={() => { setIsOverPreview(false) }} onClick={() => {
-            navigate(`/mail/${mail.id}`)
-            readMail()
-        }}>
+        <li className={`mail-preview-container ${mail.isRead ? 'read' : ''}`}
+            onMouseOver={() => { setIsOverPreview(true) }}
+            onMouseLeave={() => { setIsOverPreview(false) }} onClick={() => {
+                navigate(`/mail/${mail.id}`)
+                readMail()
+            }}>
             <span className="mail-from">
                 <Star mail={mail} setMails={setMails} />
                 {mail.from}
