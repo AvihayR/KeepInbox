@@ -69,3 +69,32 @@
 .keep-button:hover {
     background-color: #357ae8;
 }
+
+@media (max-width: 768px) {
+    .typing-animation {
+      font-size: 1.5em; 
+    }
+    
+    .gmail-button,
+    .keep-button {
+      font-size: 1rem; 
+      padding: 0.5em 1em; 
+    }
+  }
+  
+  /* For phones */
+  @media (max-width: 480px) {
+    .typing-animation {
+      font-size: 1.2em; 
+    }
+  
+    .logo {
+      max-width: 80%; 
+    }
+  
+    .gmail-button,
+    .keep-button {
+      font-size: 0.9rem; 
+      padding: 0.3em 0.8em; 
+    }
+  }

@@ -13,7 +13,7 @@ export function Home() {
 
     const sentences = [
         'All your needs in one place',
-        'Capture ideas, make to-do lists, and set reminders effortlessly',
+        'Capture ideas, make to-do lists',
         'Stay organized',
         'Your trusted email platform',
         'Access your email from anywhere'
