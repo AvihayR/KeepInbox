@@ -24,6 +24,7 @@ export function MailAside({ mails, setCompose, onSetFilterBy }) {
             <ul>
                 <li data-name='status' data-value='inbox' title="Go to your inbox" onClick={handleChange}>Inbox {renderUnreadCount()}</li>
                 <li data-name='status' data-value='sent' title="Go to sent mails" onClick={handleChange}>Sent</li>
+                <li data-name='status' data-value='starred' title="View starred mails" onClick={handleChange}>Starred</li>
                 <li title="Go to drafts folder">Drafts</li>
                 <li title="Go to trash folder">Trash</li>
             </ul>

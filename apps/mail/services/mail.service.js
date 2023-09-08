@@ -51,6 +51,9 @@ function query(filterBy = {}) {
             else if (filterBy.status === 'sent') {
                 mails = mails.filter(mail => mail.to !== loggedInUser.email)
             }
+            else if (filterBy.status === 'starred') {
+                mails = mails.filter(mail => mail.isStarred)
+            }
 
             if (filterBy.txt) {
                 const regex = new RegExp(filterBy.txt, 'i')
