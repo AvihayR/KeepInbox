@@ -1,4 +1,3 @@
-
 const { useState } = React
 
 export function MailAside({ mails, setCompose, onSetFilterBy }) {
@@ -29,25 +28,25 @@ export function MailAside({ mails, setCompose, onSetFilterBy }) {
             </button>
             <ul>
                 <li data-name='status' data-value='inbox' title="Go to your inbox" onClick={handleChange}>
-                    <span className="inbox-logo"></span>
-                    {isOverAside && <span>Inbox</span>}
+                    <span data-name='status' data-value='inbox' className="inbox-logo"></span>
+                    {isOverAside && 'Inbox'}
                     {renderUnreadCount()}
                 </li>
                 <li data-name='status' data-value='sent' title="Go to sent mails" onClick={handleChange}>
-                    <span className="sent-logo"></span>
-                    {isOverAside && <span>Sent</span>}
+                    <span data-name='status' data-value='sent' className="sent-logo"></span>
+                    {isOverAside && 'Sent'}
                 </li>
                 <li data-name='status' data-value='starred' title="View starred mails" onClick={handleChange}>
-                    <span className="starred-logo"></span>
-                    {isOverAside && <span>Starred</span>}
+                    <span data-name='status' data-value='starred' className="starred-logo"></span>
+                    {isOverAside && 'Starred'}
                 </li>
                 <li title="Go to drafts folder">
                     <span className="drafts-logo"></span>
-                    {isOverAside && <span>Drafts</span>}
+                    {isOverAside && 'Drafts'}
                 </li>
                 <li title="Go to trash folder">
                     <span className="trash-logo"></span>
-                    {isOverAside && <span>Trash</span>}
+                    {isOverAside && 'Trash'}
                 </li>
             </ul>
         </aside>
