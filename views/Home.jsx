@@ -32,7 +32,7 @@ export function Home() {
         <section className="home">
             <div className="center">
                 <div className="logo-container">
-                    <img src="../assets/img/logo.png" alt="Logo" className="logo" />
+                    <img src="./assets/img/logo.png" alt="Logo" className="logo" />
                 </div>
                 <div className="text-container">
                     <div className="typing-animation" style={{ color: colors[currentSentence] }}>

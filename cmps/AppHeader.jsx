@@ -1,6 +1,6 @@
 import { NoteFilter } from "../apps/note/cmps/NoteFilter.jsx"
 
-const { Link, NavLink, useLocation } = ReactRouterDOM
+const { Link, NavLink } = ReactRouterDOM
 
 export function AppHeader() {
 
