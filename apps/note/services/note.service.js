@@ -1,7 +1,6 @@
 import { utilService } from '../../../services/util.service.js'
 import { storageService } from '../../../services/async-storage.service.js'
 
-const colors = ['#faafa8', '#fff8b8', '#e2f6d3', '#b4ddd3', '#aeccdc', '#d3bfdb'];
 const NOTE_KEY = 'noteDB'
 
 var demoNotes = [
@@ -11,7 +10,7 @@ var demoNotes = [
         type: 'NoteTxt',
         isPinned: false,
         style: {
-            backgroundColor: getRandomColor(colors)
+            backgroundColor: getRandomColor()
         },
         info: {
             txt: '"It\'s not about the shoes. It\'s about what you do in them." - Michael Jordan'
@@ -23,7 +22,7 @@ var demoNotes = [
         type: 'NoteTxt',
         isPinned: true,
         style: {
-            backgroundColor: getRandomColor(colors)
+            backgroundColor: getRandomColor()
         },
         info: {
             txt: 'For tomorrow the code for the building is: 8456#'
@@ -38,7 +37,7 @@ var demoNotes = [
             title: 'Bobi and Me'
         },
         style: {
-            backgroundColor: getRandomColor(colors)
+            backgroundColor: getRandomColor()
         }
     },
     {
@@ -53,7 +52,7 @@ var demoNotes = [
             ]
         },
         style: {
-            backgroundColor: getRandomColor(colors)
+            backgroundColor: getRandomColor()
         }
     },
     {
@@ -65,7 +64,7 @@ var demoNotes = [
             title: 'Last summer trip'
         },
         style: {
-            backgroundColor: getRandomColor(colors)
+            backgroundColor: getRandomColor()
         }
     },
     {
@@ -77,7 +76,7 @@ var demoNotes = [
             title: 'On my way'
         },
         style: {
-            backgroundColor: getRandomColor(colors)
+            backgroundColor: getRandomColor()
         }
     },
     {
@@ -93,7 +92,7 @@ var demoNotes = [
             ]
         },
         style: {
-            backgroundColor: getRandomColor(colors)
+            backgroundColor: getRandomColor()
         }
     },
     {
@@ -105,23 +104,11 @@ var demoNotes = [
             title: ''
         },
         style: {
-            backgroundColor: getRandomColor(colors)
+            backgroundColor: getRandomColor()
         }
     },
     {
         id: 'n109',
-        createdAt: 1112222,
-        type: 'NoteTxt',
-        isPinned: true,
-        style: {
-            backgroundColor: getRandomColor(colors)
-        },
-        info: {
-            txt: 'Don\'t forget to bring a birthday present for Daniel'
-        }
-    },
-    {
-        id: 'n1110',
         type: 'NoteTodos',
         isPinned: true,
         info: {
@@ -135,9 +122,20 @@ var demoNotes = [
             ]
         },
         style: {
-            backgroundColor: getRandomColor(colors)
+            backgroundColor: getRandomColor()
         }
     },
+    {
+        id: 'n110',
+        type: 'NoteVideo',
+        isPinned: false,
+        style: {
+            backgroundColor: getRandomColor()
+        },
+        info: {
+            videoUrl: 'https://www.youtube.com/watch?v=6stlCkUDG_s&ab_channel=FreeHDvideos-nocopyright'
+        },
+    }
 ]
  
 _createNotes()
@@ -154,6 +152,7 @@ export const noteService = {
     savePinnedNotes,
     loadPinnedNotes,
     getRandomColor,
+    getEmptyVideoNote,
 }
 
 function query(filterBy = {}) {
@@ -161,7 +160,7 @@ function query(filterBy = {}) {
         .then((notes) => {
             if (filterBy.txt) {
                 const regExp = new RegExp(filterBy.txt, 'i')
-                notes = notes.filter(note => regExp.test(note.info.txt,))
+                notes = notes.filter(note => regExp.test(note.info.txt||note.info.title))
             }
 
             if (filterBy.type) {
@@ -198,7 +197,7 @@ function getEmptyTxtNote() {
         type: 'NoteTxt',
         isPinned: false,
         style: {
-            backgroundColor: getRandomColor(colors)
+            backgroundColor: getRandomColor()
         },
         info: {
             txt: ''
@@ -212,7 +211,7 @@ function getEmptyImgNote() {
         type: 'NoteImg',
         isPinned: false,
         style: {
-            backgroundColor: getRandomColor(colors)
+            backgroundColor: getRandomColor()
         },
         info: {
             url: '',
@@ -233,9 +232,21 @@ function getEmptyTodosNote() {
             ]
         },
         style: {
-            backgroundColor: getRandomColor(colors)
+            backgroundColor: getRandomColor()
         }
 
+    }
+}
+function getEmptyVideoNote() {
+    return {
+        type: "NoteVideo",
+        isPinned: false,
+        style: {
+            backgroundColor: getRandomColor(),
+        },
+        info: {
+            videoUrl: "",
+        },
     }
 }
 
@@ -251,7 +262,8 @@ function _createNotes() {
     }
 }
 
-function getRandomColor(colors) {
+function getRandomColor() {
+    const colors = ['#faafa8', '#fff8b8', '#e2f6d3', '#b4ddd3', '#aeccdc', '#d3bfdb']
     const randomIndex = Math.floor(Math.random() * colors.length)
     return colors[randomIndex]
 }

@@ -9,13 +9,12 @@
 .search-container {
     display: flex;
     align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 15px;
+    border-radius: 25px;
     padding: 5px;
     overflow: hidden;
     width: 400px;
-    position: relative
-
+    position: relative;
+    background-color: #eaf1fb;
 }
 
 .search-input {
@@ -24,6 +23,7 @@
     outline: none;
     padding: 5px;
     font-size: 16px;
+    background-color: #eaf1fb;
 }
 
 .filter-buttons {
@@ -46,12 +46,20 @@
     animation: 1s infinite pulse;
 }
 
+.filter-button {
+    color: #73c6f7a6;
+}
+
 .filter-button.active {
     color: var(--google-blue);
 }
 
 .filter-button:hover {
     color: var(--google-blue);
+}
+
+.filter-button.notetxt {
+    color: #f4bb4089;
 }
 
 .filter-button.notetxt.active {
@@ -62,6 +70,10 @@
     color: var(--google-yellow);
 }
 
+.filter-button.noteImg {
+    color: var(--google-marker-red);
+}
+
 .filter-button.noteImg.active {
     color: var(--google-red);
 }
@@ -69,6 +81,11 @@
 .filter-button.noteImg:hover {
     color: var(--google-red);
 }
+
+.filter-button.noteTodos {
+    color: #58b1138d
+}
+
 
 .filter-button.noteTodos.active {
     color: var(--google-green);

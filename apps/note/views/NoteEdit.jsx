@@ -1,6 +1,5 @@
 const { useState, useEffect } = React
 const { useNavigate, useParams } = ReactRouterDOM
-
 import { noteService } from "../services/note.service.js"
 
 export function NoteEdit({ setNotes }) {
@@ -11,6 +10,7 @@ export function NoteEdit({ setNotes }) {
     const [newTodo, setNewTodo] = useState("")
     const navigate = useNavigate()
     const params = useParams()
+
 
     useEffect(() => {
         if (params.noteId) loadNote()
@@ -68,15 +68,15 @@ export function NoteEdit({ setNotes }) {
     }
 
     function onSaveNote(ev) {
-        ev.preventDefault()
+        ev.preventDefault();
         noteService
             .save(noteToEdit)
             .then((savedNote) => {
-                navigate("/note")
-                setNotes((prevNotes) => [...prevNotes, savedNote])
-                setNoteToEdit(noteService.getEmptyTxtNote())
+                navigate("/note");
+                setNotes((prevNotes) => [...prevNotes, savedNote]);
+                setNoteToEdit(noteService.getEmptyTxtNote());
             })
-            .catch((err) => console.log("err", err))
+            .catch((err) => console.log("err", err));
     }
 
     function addTodo() {
@@ -108,6 +108,11 @@ export function NoteEdit({ setNotes }) {
     function switchToTodosNote() {
         setSelectedNoteType("todos")
         setNoteToEdit(noteService.getEmptyTodosNote())
+    }
+
+    function switchToVideoNote() {
+        setSelectedNoteType("video");
+        setNoteToEdit(noteService.getEmptyVideoNote()); // Create a function to get an empty video note.
     }
 
     function removeTodo(todoIndex) {
@@ -184,6 +189,16 @@ export function NoteEdit({ setNotes }) {
                         </div>
                     </div>
                 )
+            case "video":
+                return (
+                    <input
+                        onChange={handleChange}
+                        value={noteToEdit.info.videoUrl || ""}
+                        type="text"
+                        placeholder="YouTube Video URL"
+                        name="videoUrl"
+                    />
+                )
             default:
                 return null
         }
@@ -210,6 +225,13 @@ export function NoteEdit({ setNotes }) {
                     </button>
                     <button
                         type="button"
+                        onClick={switchToVideoNote}
+                        className={selectedNoteType === "video" ? "active" : ""}
+                    >
+                        Add a video
+                    </button>
+                    <button
+                        type="button"
                         onClick={switchToTodosNote}
                         className={selectedNoteType === "todos" ? "active" : ""}
                     >
@@ -217,7 +239,7 @@ export function NoteEdit({ setNotes }) {
                     </button>
                 </div>
                 {renderNoteFields()}
-                <button>
+                <button className="sent">
                     <i className="fa-solid fa-plus"></i>
                 </button>
             </form>

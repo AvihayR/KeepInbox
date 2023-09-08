@@ -20,7 +20,7 @@ export function NoteList({ notes, onRemoveNote, onChangeColor, onPinNote, onDupl
         if (!a.isPinned && b.isPinned) return 1
         return 0
     })
-
+    
     return (
         <div className="note-list">
             {sortedNotes.map(note => (

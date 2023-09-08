@@ -21,6 +21,10 @@
     min-height: 120px;
 }
 
+.note-list .note-container:focus {
+    outline: none;
+}
+
 .note-list .note-container:not(:first-of-type) {
     margin-block-start: 15px;
 }
