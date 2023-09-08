@@ -50,7 +50,12 @@
 }
 
 .mail-list .mail-preview-container span.mail-time {
+    display: flex;
+    align-items: center;
+    justify-content: end;
     margin-inline-start: auto;
+    width: 130px;
+    height: 30px;
     margin-inline-end: 10px;
     white-space: nowrap;
     font-weight: 400;
