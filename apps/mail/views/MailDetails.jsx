@@ -43,7 +43,7 @@ export function MailDetails() {
             {renderMailHeader()}
 
             <article className="mail-content">
-                <p>{mail.body}</p>
+                <pre>{mail.body}</pre>
             </article>
         </section>
     )

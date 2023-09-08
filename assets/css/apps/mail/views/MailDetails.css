@@ -28,3 +28,9 @@
 .app .mail-container .mail-content {
     width: 80%;
 }
+
+.app .mail-container pre {
+    font-family: 'Roboto', 'GoogleSans', sans-serif;
+    font-size: .875rem;
+    font-weight: 400;
+}

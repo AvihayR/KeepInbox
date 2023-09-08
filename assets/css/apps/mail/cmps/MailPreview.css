@@ -46,7 +46,6 @@
 .mail-list .mail-preview-container span.mail-from {
     display: flex;
     align-items: center;
-    margin-inline-start: 10px;
 }
 
 .mail-list .mail-preview-container span.mail-time {
