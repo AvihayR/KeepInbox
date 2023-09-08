@@ -7,6 +7,7 @@ export function NoteList({ notes, onRemoveNote, onChangeColor, onPinNote, onDupl
     const [showColorPicker, setShowColorPicker] = useState(false)
     const [selectedNoteId, setSelectedNoteId] = useState(null)
     const [modalPosition, setModalPosition] = useState({ x: 0, y: 0 })
+    
 
     function handleColorButtonClick(noteId, event) {
         setSelectedNoteId(noteId)
