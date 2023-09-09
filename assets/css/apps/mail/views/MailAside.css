@@ -7,6 +7,7 @@
 }
 
 .main-mail aside .compose {
+    font-family: 'GoogleSans';
     font-size: 1rem;
     height: 3rem;
     min-width: 2.8125em;
@@ -14,9 +15,9 @@
     outline: none;
     border: none;
     background-color: var(--google-sky);
-    color: var(--google-dark-grey);
     transition: box-shadow 0.3s, color 0.3s;
     margin-bottom: 0.5em;
+    color: var(--google-black);
 }
 
 .main-mail aside .compose::before {
