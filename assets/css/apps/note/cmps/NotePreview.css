@@ -37,6 +37,19 @@
     font-style: italic;
 }
 
+.update-btns {
+    font-size: 22px;
+}
+
+.update-btns:hover {
+    background: none;
+}
+
+.note-animation {
+    animation: .5s backInDown;
+}
+
+
 @media (max-width: 530px) {
     .note-list {
         display: flex;

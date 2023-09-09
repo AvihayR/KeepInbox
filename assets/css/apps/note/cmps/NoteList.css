@@ -4,6 +4,7 @@
     display: block;
     columns: 6 250px;
     align-items: start;
+    animation: 1s fadeIn;
 }
 
 .note-list .note-container {

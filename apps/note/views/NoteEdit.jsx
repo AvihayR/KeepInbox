@@ -143,22 +143,26 @@ export function NoteEdit({ setNotes }) {
     }
 
     function onSaveNote(ev) {
-        ev.preventDefault()
-
+        ev.preventDefault();
+    
         if (selectedNoteType === "draw") {
-            noteToEdit.info.drawingData = drawingData
-            setSelectedNoteType('text')
-
+            noteToEdit.info.drawingData = drawingData;
+            setSelectedNoteType('text');
         }
-
+    
+        const newNote = {
+            ...noteToEdit,
+            isNew: true, // Set the isNew property to true for newly created notes
+        };
+    
         noteService
-            .save(noteToEdit)
+            .save(newNote)
             .then((savedNote) => {
-                navigate("/note")
-                setNotes((prevNotes) => [...prevNotes, savedNote])
-                setNoteToEdit(noteService.getEmptyTxtNote())
+                navigate("/note");
+                setNotes((prevNotes) => [...prevNotes, savedNote]);
+                setNoteToEdit(noteService.getEmptyTxtNote());
             })
-            .catch((err) => console.log("err", err))
+            .catch((err) => console.log("err", err));
     }
 
     function addTodo() {
@@ -308,7 +312,7 @@ export function NoteEdit({ setNotes }) {
                             height={200}
                             style={{ border: '1px solid #000' }}
                         ></canvas>
-                        <button type="button" onClick={clearCanvas}><i className="fa-solid fa-eraser"></i></button>
+                        <button className="clean-canvas-btn" type="button" onClick={clearCanvas}><i className="fa-solid fa-eraser"></i></button>
                     </div>
                 )
             default:

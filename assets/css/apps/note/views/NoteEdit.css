@@ -54,6 +54,7 @@
 .note-edit button:hover {
   background-color: #0056b3;
 }
+
 .note-edit .sent {
   background-color: var(--google-green);
 }
@@ -126,4 +127,15 @@
 .todos-btn {
   margin-left: 8px;
   margin-block-end: 10px;
+}
+
+.note-edit .clean-canvas-btn {
+  background: none;
+  color: #0056b3;
+  transition: 0;
+}
+
+.note-edit .clean-canvas-btn:hover {
+  background:none;
+  animation: 1s jello infinite;
 }
