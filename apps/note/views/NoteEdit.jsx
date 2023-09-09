@@ -290,35 +290,35 @@ export function NoteEdit({ setNotes }) {
                         onClick={switchToTextNote}
                         className={selectedNoteType === "text" ? "active" : ""}
                     >
-                        New note <i className="fa-regular fa-note-sticky"></i>
+                        <span className="btn-txt"> New note </span> <i className="fa-regular fa-note-sticky"></i>
                     </button>
                     <button
                         type="button"
                         onClick={switchToImgNote}
                         className={selectedNoteType === "img" ? "active" : ""}
                     >
-                        New image <i className="fa-regular fa-images"></i>
+                        <span className="btn-txt"> New image </span> <i className="fa-regular fa-images"></i>
                     </button>
                     <button
                         type="button"
                         onClick={switchToVideoNote}
                         className={selectedNoteType === "video" ? "active" : ""}
                     >
-                        New video <i className="fa-brands fa-youtube"></i>
+                        <span className="btn-txt"> New video </span> <i className="fa-brands fa-youtube"></i>
                     </button>
                     <button
                         type="button"
                         onClick={switchToTodosNote}
                         className={selectedNoteType === "todos" ? "active" : ""}
                     >
-                        New list <i className="fa-regular fa-square-check"></i>
+                        <span className="btn-txt"> New list </span> <i className="fa-regular fa-square-check"></i>
                     </button>
                     <button
                         type="button"
                         onClick={switchToDrawNote}
                         className={selectedNoteType === "draw" ? "active" : ""}
                     >
-                        Draw<i className="fa-solid fa-paintbrush"></i>
+                        <span className="btn-txt"> Draw </span> <i className="fa-solid fa-paintbrush"></i>
                     </button>
                 </div>
                 {renderNoteFields()}

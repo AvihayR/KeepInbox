@@ -32,7 +32,7 @@
     position: absolute;
     right: 10px;
     top: 50%;
-    transform: translateY(-50%); 
+    transform: translateY(-50%);
 }
 
 .filter-button {
@@ -94,8 +94,20 @@
 .filter-button.noteTodos:hover {
     color: var(--google-green);
 }
- 
+
 .filter-button input[type="radio"] {
     display: none;
 }
 
+/* For Tablets */
+
+@media (max-width: 768px) {
+}
+
+/* For phones */
+
+@media (max-width: 480px) {
+    .search-container {
+        width: 80%;
+    }
+}
