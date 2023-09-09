@@ -1,33 +1,67 @@
 /* MOBILE ONLY */
-@media (max-width: 660px) {}
-
-/* SMALL */
-@media (min-width: 660px) {
-    /* .mail-list .mail-preview-container {
-        grid-template-columns: 25px minmax(55px, 1fr) 3fr 25px;
-        grid-template-rows: 25px 25px;
-    }
-
-    .mail-list .mail-preview-container .mail-subject {
-        grid-row: 1;
-        grid-column: 3;
+@media (max-width: 660px) {
+    .mail-list-container .mail-list .mail-preview-container {
+        grid-template-columns: minmax(50px, auto) minmax(50px, 1fr) minmax(50px, 1fr) 25px;
+        grid-template-rows: 25px 25px 25px;
+        column-gap: 10px;
     }
 
     .mail-list .mail-preview-container .mail-body {
-        grid-column: 1/4;
-        grid-row: 2;
+        grid-row: 3;
+        grid-column: 1/-1;
+        margin-inline-start: 0.75em;
     }
 
-    .mail-list .mail-preview-container .mail-time {
-        grid-column: 3;
-        grid-row: 1;
-        margin: 0;
-        width: fit-content;
-    } */
+    .mail-list .mail-preview-container span.mail-time {
+        grid-column: -1;
+        grid-row: 1/-1;
+    }
+
+    .mail-list .mail-preview-container .mail-subject {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        grid-column: 1/-1;
+        grid-row: 2;
+        margin-inline-start: 0.75em;
+    }
+
+}
+
+/* SMALL */
+@media (min-width: 660px) {
+    .mail-list-container .mail-list .mail-preview-container {
+        grid-template-columns: minmax(50px, auto) minmax(50px, 1fr) minmax(50px, 1fr) 25px;
+        grid-template-rows: 25px 25px;
+        column-gap: 10px;
+    }
+
+    .mail-list .mail-preview-container .mail-body {
+        grid-row: 2;
+        grid-column: 1/-1;
+        margin-inline-start: 0.75em;
+    }
+
+    .mail-list .mail-preview-container span.mail-time {
+        grid-column: -1;
+        grid-row: 1/-1;
+    }
 }
 
 /* MEDIUM */
-@media (min-width: 800px) {}
+@media (min-width: 800px) {
+    .mail-list-container .mail-list .mail-preview-container {
+        grid-template-columns: minmax(200px, 12.5vw) 1fr 6fr 1fr;
+        grid-template-rows: unset;
+    }
+
+    .mail-list .mail-preview-container .mail-body {
+        grid-row: 1;
+        grid-column: 3;
+    }
+}
 
 /* LARGE */
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {
+    /* .mail-list .mail-preview-container */
+}
