@@ -1,6 +1,9 @@
-const { useState,useEffect } = React
+import { NoteUpdate } from "./NoteUpdate.jsx"
 
-export function NotePreview({ note }) {
+const { useState } = React
+
+export function NotePreview({ note, setNotes, onUpdateNote }) {
+    const [isEditMode, setIsEditMode] = useState(false)
 
     function DynamicCmp() {
         switch (note.type) {
@@ -17,12 +20,37 @@ export function NotePreview({ note }) {
         }
     }
 
+    function handleEditClick() {
+        setIsEditMode(true)
+    }
+
+    function handleCancelEdit() {
+        setIsEditMode(false)
+    }
+
+    function handleSaveEdit() {
+        setIsEditMode(false)
+    }
+
+
     return (
-        <article className="note-preview " >
-            {<DynamicCmp />}
+        <article className="note-preview">
+            {note.type === 'NoteTxt' && !isEditMode && (
+                <button className="controls edit-btn" title="Edit note" onClick={handleEditClick}><i className="fa-solid fa-pen"></i></button>
+            )}
+            {isEditMode ? (
+                <div>
+                    <NoteUpdate note={note} setNotes={setNotes} onUpdateNote={onUpdateNote} />
+                    <button onClick={handleSaveEdit}><i className="fa-regular fa-floppy-disk"></i></button>
+                    <button onClick={handleCancelEdit}><i className="fa-solid fa-xmark"></i></button>
+                </div>
+            ) : (
+                <div>
+                    <DynamicCmp />
+                </div>
+            )}
         </article>
     )
-
 }
 
 function NoteTxt({ info }) {
@@ -49,46 +77,43 @@ function NoteTodos({ info }) {
     const { title, todos } = info
     const [completedTodos, setCompletedTodos] = useState(
         JSON.parse(localStorage.getItem('completedTodos')) || []
-      )
+    )
 
-      function toggleTodoStatus(index) {
-        const updatedCompletedTodos = [...completedTodos];
+    function toggleTodoStatus(index) {
+        const updatedCompletedTodos = [...completedTodos]
         if (updatedCompletedTodos.includes(index)) {
-          // If it's in completed todos, remove it
-          updatedCompletedTodos.splice(updatedCompletedTodos.indexOf(index), 1);
+            updatedCompletedTodos.splice(updatedCompletedTodos.indexOf(index), 1)
         } else {
-          // If it's not in completed todos, add it
-          updatedCompletedTodos.push(index);
+            updatedCompletedTodos.push(index)
         }
-        setCompletedTodos(updatedCompletedTodos);
-    
-        // Save completed todos to localStorage
-        localStorage.setItem('completedTodos', JSON.stringify(updatedCompletedTodos));
-      }
-      
-      function isTodoCompleted(index) {
-        return completedTodos.includes(index);
-      }
+        setCompletedTodos(updatedCompletedTodos)
 
-      return (
-        <div className="note-todos">
-          <h4>{title}</h4>
-          <ul>
-            {todos.map((todo, index) => (
-              <li key={index} className={isTodoCompleted(index) ? "todo-done" : ""}>
-                <input
-                  type="checkbox"
-                  id={todo.txt}
-                  checked={isTodoCompleted(index)}
-                  onChange={() => toggleTodoStatus(index)}
-                />
-                <label htmlFor={todo.txt}>{todo.txt}</label>
-              </li>
-            ))}
-          </ul>
-        </div>
-      );
+        localStorage.setItem('completedTodos', JSON.stringify(updatedCompletedTodos))
     }
+
+    function isTodoCompleted(index) {
+        return completedTodos.includes(index)
+    }
+
+    return (
+        <div className="note-todos">
+            <h4>{title}</h4>
+            <ul>
+                {todos.map((todo, index) => (
+                    <li key={index} className={isTodoCompleted(index) ? "todo-done" : ""}>
+                        <input
+                            type="checkbox"
+                            id={todo.txt}
+                            checked={isTodoCompleted(index)}
+                            onChange={() => toggleTodoStatus(index)}
+                        />
+                        <label htmlFor={todo.txt}>{todo.txt}</label>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    )
+}
 
 function NoteVideo({ info }) {
     const { videoUrl } = info
@@ -104,7 +129,7 @@ function NoteVideo({ info }) {
                 allowFullScreen
             ></iframe>
         </div>
-    );
+    )
 }
 
 function getYouTubeVideoId(url) {

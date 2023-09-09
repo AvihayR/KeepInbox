@@ -61,7 +61,6 @@
     animation: 1s swing;
 }
 
-
 .note-container .pin-icon,
 .note-container section button {
   opacity: 0;
@@ -72,3 +71,4 @@
 .note-container:hover section button {
   opacity: 1;
 }
+

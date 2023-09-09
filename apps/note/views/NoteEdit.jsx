@@ -3,7 +3,7 @@ const { useNavigate, useParams } = ReactRouterDOM
 import { noteService } from "../services/note.service.js"
 
 export function NoteEdit({ setNotes }) {
-
+    
     const [noteToEdit, setNoteToEdit] = useState(noteService.getEmptyTxtNote())
     const [selectedNoteType, setSelectedNoteType] = useState('text')
     const [selectedFileName, setSelectedFileName] = useState("")
@@ -68,15 +68,15 @@ export function NoteEdit({ setNotes }) {
     }
 
     function onSaveNote(ev) {
-        ev.preventDefault();
+        ev.preventDefault()
         noteService
             .save(noteToEdit)
             .then((savedNote) => {
-                navigate("/note");
-                setNotes((prevNotes) => [...prevNotes, savedNote]);
-                setNoteToEdit(noteService.getEmptyTxtNote());
+                navigate("/note")
+                setNotes((prevNotes) => [...prevNotes, savedNote])
+                setNoteToEdit(noteService.getEmptyTxtNote())
             })
-            .catch((err) => console.log("err", err));
+            .catch((err) => console.log("err", err))
     }
 
     function addTodo() {
@@ -111,8 +111,8 @@ export function NoteEdit({ setNotes }) {
     }
 
     function switchToVideoNote() {
-        setSelectedNoteType("video");
-        setNoteToEdit(noteService.getEmptyVideoNote()); // Create a function to get an empty video note.
+        setSelectedNoteType("video")
+        setNoteToEdit(noteService.getEmptyVideoNote())
     }
 
     function removeTodo(todoIndex) {

@@ -70,6 +70,8 @@
     background-color: #357ae8;
 }
 
+/* For Tablets */
+
 @media (max-width: 768px) {
     .typing-animation {
       font-size: 1.5em; 
