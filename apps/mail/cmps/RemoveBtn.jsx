@@ -8,7 +8,7 @@ export function RemoveBtn({ mail, setMails, goBack = false }) {
         ev.stopPropagation()
         mailService.remove(mail.id)
             .then(setMails && setMails(prevMails => prevMails.filter(prevMail => prevMail !== mail)))
-            .then(goBack && navigate('/mail'))
+            .then(goBack && setTimeout(() => { navigate('/mail') }, 350))
     }
 
     return (

@@ -1,9 +1,9 @@
 import { mailService } from "../services/mail.service.js"
 import { utilService } from "../../../services/util.service.js"
-// import { RemoveBtn } from "../cmps/RemoveBtn.jsx"
+import { RemoveBtn } from "../cmps/RemoveBtn.jsx"
 
 const { useState, useEffect } = React
-const { useParams, Link, useNavigate, Outlet, useLocation } = ReactRouterDOM
+const { useParams, Link, useNavigate, useLocation } = ReactRouterDOM
 
 
 export function MailDetails() {
@@ -21,7 +21,7 @@ export function MailDetails() {
         return (
             <section className="top-controls">
                 <Link to='/mail' className="google-btn go-back" title='Go back to inbox'></Link>
-                {/* <RemoveBtn mail={mail} goBack={true} /> */}
+                <RemoveBtn mail={mail} goBack={true} />
             </section>
         )
     }
