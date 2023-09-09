@@ -1,13 +1,15 @@
-const { useState, useEffect } = React
+const { useState, useEffect, useRef } = React
 const { useNavigate, useParams } = ReactRouterDOM
 import { noteService } from "../services/note.service.js"
 
 export function NoteEdit({ setNotes }) {
-    
+
     const [noteToEdit, setNoteToEdit] = useState(noteService.getEmptyTxtNote())
     const [selectedNoteType, setSelectedNoteType] = useState('text')
     const [selectedFileName, setSelectedFileName] = useState("")
+    const [drawingData, setDrawingData] = useState(null)
     const [newTodo, setNewTodo] = useState("")
+    const canvasRef = useRef(null)
     const navigate = useNavigate()
     const params = useParams()
 
@@ -15,6 +17,45 @@ export function NoteEdit({ setNotes }) {
     useEffect(() => {
         if (params.noteId) loadNote()
     }, [])
+
+
+    useEffect(() => {
+        if (selectedNoteType === "draw") {
+            const canvas = canvasRef.current
+            const context = canvas.getContext('2d')
+
+            if (drawingData) {
+                const img = new Image()
+                img.src = drawingData
+                img.onload = () => {
+                    context.drawImage(img, 0, 0)
+                }
+            }
+
+            let isDrawing = false
+
+            canvas.addEventListener('mousedown', (ev) => {
+                isDrawing = true
+                context.beginPath()
+                context.moveTo(ev.clientX - canvas.offsetLeft, ev.clientY - canvas.offsetTop)
+            })
+
+            canvas.addEventListener('mousemove', (ev) => {
+                if (!isDrawing) return
+                context.lineTo(ev.clientX - canvas.offsetLeft, ev.clientY - canvas.offsetTop)
+                context.stroke()
+            })
+
+            canvas.addEventListener('mouseup', () => {
+                isDrawing = false
+                saveDrawing()
+            })
+
+            canvas.addEventListener('mouseleave', () => {
+                isDrawing = false
+            })
+        }
+    }, [selectedNoteType, drawingData])
 
     function loadNote() {
         noteService.get(params.noteId)
@@ -69,6 +110,11 @@ export function NoteEdit({ setNotes }) {
 
     function onSaveNote(ev) {
         ev.preventDefault()
+
+        if (selectedNoteType === "draw") {
+            noteToEdit.info.drawingData = drawingData
+        }
+
         noteService
             .save(noteToEdit)
             .then((savedNote) => {
@@ -115,6 +161,12 @@ export function NoteEdit({ setNotes }) {
         setNoteToEdit(noteService.getEmptyVideoNote())
     }
 
+    function switchToDrawNote() {
+        setSelectedNoteType("draw")
+        setDrawingData(null)
+        setNoteToEdit(noteService.getEmptyDrawNote())
+    }
+
     function removeTodo(todoIndex) {
         setNoteToEdit(prevNote => ({
             ...prevNote,
@@ -123,6 +175,18 @@ export function NoteEdit({ setNotes }) {
                 todos: prevNote.info.todos.filter((_, index) => index !== todoIndex),
             },
         }))
+    }
+
+    function saveDrawing() {
+        const canvas = canvasRef.current
+        const drawingDataURL = canvas.toDataURL()
+        setDrawingData(drawingDataURL)
+    }
+
+    function clearCanvas() {
+        const canvas = canvasRef.current
+        const context = canvas.getContext('2d')
+        context.clearRect(0, 0, canvas.width, canvas.height)
     }
 
     function renderNoteFields() {
@@ -199,6 +263,18 @@ export function NoteEdit({ setNotes }) {
                         name="videoUrl"
                     />
                 )
+            case "draw":
+                return (
+                    <div>
+                        <canvas
+                            ref={canvasRef}
+                            width={300}
+                            height={200}
+                            style={{ border: '1px solid #000' }}
+                        ></canvas>
+                        <button type="button" onClick={clearCanvas}><i className="fa-solid fa-eraser"></i></button>
+                    </div>
+                )
             default:
                 return null
         }
@@ -214,28 +290,35 @@ export function NoteEdit({ setNotes }) {
                         onClick={switchToTextNote}
                         className={selectedNoteType === "text" ? "active" : ""}
                     >
-                        Add a note
+                        New note <i className="fa-regular fa-note-sticky"></i>
                     </button>
                     <button
                         type="button"
                         onClick={switchToImgNote}
                         className={selectedNoteType === "img" ? "active" : ""}
                     >
-                        Add an image
+                        New image <i className="fa-regular fa-images"></i>
                     </button>
                     <button
                         type="button"
                         onClick={switchToVideoNote}
                         className={selectedNoteType === "video" ? "active" : ""}
                     >
-                        Add a video
+                        New video <i className="fa-brands fa-youtube"></i>
                     </button>
                     <button
                         type="button"
                         onClick={switchToTodosNote}
                         className={selectedNoteType === "todos" ? "active" : ""}
                     >
-                        Add a list
+                        New list <i className="fa-regular fa-square-check"></i>
+                    </button>
+                    <button
+                        type="button"
+                        onClick={switchToDrawNote}
+                        className={selectedNoteType === "draw" ? "active" : ""}
+                    >
+                        Draw<i className="fa-solid fa-paintbrush"></i>
                     </button>
                 </div>
                 {renderNoteFields()}

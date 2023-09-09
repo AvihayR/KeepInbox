@@ -15,6 +15,8 @@ export function NotePreview({ note, setNotes, onUpdateNote }) {
                 return <NoteTodos info={note.info} />
             case 'NoteVideo':
                 return <NoteVideo info={note.info} />
+            case 'NoteDraw':
+                return <NoteDraw drawingData={note.info.drawingData} />
             default:
                 return null
         }
@@ -139,4 +141,12 @@ function getYouTubeVideoId(url) {
         return match[1]
     }
     return ""
+}
+
+function NoteDraw({ drawingData }) {
+    return (
+        <div className="note-draw">
+            <img src={drawingData} alt="Drawing" />
+        </div>
+    )
 }

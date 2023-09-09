@@ -22,15 +22,10 @@ export function NoteList({ notes, setNotes, onRemoveNote, onChangeColor, onPinNo
         return 0
     })
 
-    const lineDownStyle = {
-        wordWrap: 'break-word',
-        whiteSpace: 'pre-wrap',
-    }
-
     return (
         <div className="note-list">
             {sortedNotes.map(note => (
-                <div tyle={lineDownStyle} className="note-container" key={note.id} style={{ backgroundColor: note.style.backgroundColor }} >
+                <div className="note-container" key={note.id} style={{ backgroundColor: note.style.backgroundColor }} >
                     <button title="Pin note" className="pin-icon" onClick={() => { onPinNote(note.id) }}>{note.isPinned ? <i className="fa-solid fa-thumbtack" ></i> : <i className="fa-solid fa-thumbtack" style={{ color: 'rgba(89, 85, 98, 0.4)' }}></i>}</button>
                     <NotePreview note={note} setNotes={setNotes} onUpdateNote={onUpdateNote} />
                     <section>

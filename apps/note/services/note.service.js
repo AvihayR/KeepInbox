@@ -126,7 +126,7 @@ var demoNotes = [
         }
     },
 ]
- 
+
 _createNotes()
 
 export const noteService = {
@@ -137,6 +137,7 @@ export const noteService = {
     getEmptyTxtNote,
     getEmptyImgNote,
     getEmptyTodosNote,
+    getEmptyDrawNote,
     getDefaultFilter,
     savePinnedNotes,
     loadPinnedNotes,
@@ -149,7 +150,7 @@ function query(filterBy = {}) {
         .then((notes) => {
             if (filterBy.txt) {
                 const regExp = new RegExp(filterBy.txt, 'i')
-                notes = notes.filter(note => regExp.test(note.info.txt||note.info.title))
+                notes = notes.filter(note => regExp.test(note.info.txt || note.info.title))
             }
 
             if (filterBy.type) {
@@ -239,8 +240,22 @@ function getEmptyVideoNote() {
     }
 }
 
+function getEmptyDrawNote() {
+    return {
+        createdAt: null,
+        type: 'NoteDraw',
+        isPinned: false,
+        style: {
+            backgroundColor: getRandomColor()
+        },
+        info: {
+            drawingData: '',
+        },
+    }
+}
+
 function getDefaultFilter() {
-    return { txt: '', type: ''  }
+    return { txt: '', type: '' }
 }
 
 function _createNotes() {
@@ -259,9 +274,9 @@ function getRandomColor() {
 
 function savePinnedNotes(pinnedNotes) {
     localStorage.setItem('pinnedNotes', JSON.stringify(pinnedNotes))
-  }
-  
-  function loadPinnedNotes() {
+}
+
+function loadPinnedNotes() {
     const pinnedNotesJSON = localStorage.getItem('pinnedNotes')
     return JSON.parse(pinnedNotesJSON) || []
-  }
+}
