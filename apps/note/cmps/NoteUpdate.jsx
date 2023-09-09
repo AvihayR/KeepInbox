@@ -1,13 +1,9 @@
-import { noteService } from "../services/note.service.js"
-
-const { useState, useEffect } = React
-
 export function NoteUpdate({ note, setNotes, onUpdateNote }) {
 
     function handleChange({ target }) {
         const field = target.name
         let value = target.value
-
+``
         const updatedNote = {
             ...note,
             info: {

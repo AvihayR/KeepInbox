@@ -25,18 +25,26 @@ export function NoteEdit({ setNotes }) {
             const context = canvas.getContext('2d')
             let isDrawing = false
 
+            if (drawingData) {
+                const img = new Image()
+                img.src = drawingData
+                img.onload = () => {
+                    context.drawImage(img, 0, 0)
+                }
+            }
+
             function startDrawing(event) {
                 isDrawing = true
-                const x = event.touches[0].clientX - canvas.offsetLeft
-                const y = event.touches[0].clientY - canvas.offsetTop
+                const x = event.clientX - canvas.offsetLeft
+                const y = event.clientY - canvas.offsetTop
                 context.beginPath()
                 context.moveTo(x, y)
             }
 
             function draw(event) {
                 if (!isDrawing) return
-                const x = event.touches[0].clientX - canvas.offsetLeft
-                const y = event.touches[0].clientY - canvas.offsetTop
+                const x = event.clientX - canvas.offsetLeft
+                const y = event.clientY - canvas.offsetTop
                 context.lineTo(x, y)
                 context.stroke()
             }
@@ -51,8 +59,16 @@ export function NoteEdit({ setNotes }) {
             canvas.addEventListener('mouseup', stopDrawing)
             canvas.addEventListener('mouseleave', stopDrawing)
 
-            canvas.addEventListener('touchstart', startDrawing)
-            canvas.addEventListener('touchmove', draw)
+            canvas.addEventListener('touchstart', (touchEvent) => {
+                const ev = touchEvent.touches[0]
+                startDrawing(ev)
+            })
+
+            canvas.addEventListener('touchmove', (touchEvent) => {
+                const ev = touchEvent.touches[0]
+                draw(ev)
+            })
+
             canvas.addEventListener('touchend', stopDrawing)
             canvas.addEventListener('touchcancel', stopDrawing)
 
@@ -62,14 +78,19 @@ export function NoteEdit({ setNotes }) {
                 canvas.removeEventListener('mouseup', stopDrawing)
                 canvas.removeEventListener('mouseleave', stopDrawing)
 
-                canvas.removeEventListener('touchstart', startDrawing)
-                canvas.removeEventListener('touchmove', draw)
+                canvas.removeEventListener('touchstart', (touchEvent) => {
+                    const ev = touchEvent.touches[0]
+                    startDrawing(ev)
+                })
+                canvas.removeEventListener('touchmove', (touchEvent) => {
+                    const ev = touchEvent.touches[0]
+                    draw(ev)
+                })
                 canvas.removeEventListener('touchend', stopDrawing)
                 canvas.removeEventListener('touchcancel', stopDrawing)
             }
         }
     }, [selectedNoteType, drawingData])
-
     function loadNote() {
         noteService.get(params.noteId)
             .then(setNoteToEdit)
