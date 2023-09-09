@@ -12,7 +12,13 @@ export function MailPreview({ mail, setMails }) {
     const [isMailRead, setMailRead] = useState(false)
     const navigate = useNavigate()
 
-    function onSetMailRead() {
+    function onReadMail() {
+        mail.isRead = true
+        mailService.save(mail)
+        setMailRead(true)
+    }
+
+    function onToggleMailRead() {
         mail.isRead = !mail.isRead
         mailService.save(mail)
         setMailRead(prevIsMailRead => !prevIsMailRead)
@@ -23,7 +29,7 @@ export function MailPreview({ mail, setMails }) {
             onMouseOver={() => { setIsOverPreview(true) }}
             onMouseLeave={() => { setIsOverPreview(false) }} onClick={() => {
                 navigate(`/mail/${mail.id}`)
-                onSetMailRead()
+                onReadMail()
             }}>
             <span className="mail-from">
                 <Star mail={mail} setMails={setMails} />
@@ -34,7 +40,7 @@ export function MailPreview({ mail, setMails }) {
 
             <span className="mail-time">
                 {isOverPreview && <RemoveBtn mail={mail} setMails={setMails} />}
-                {isOverPreview && <ReadBtn mail={mail} onSetMailRead={onSetMailRead} />}
+                {isOverPreview && <ReadBtn mail={mail} onToggleMailRead={onToggleMailRead} />}
                 {!isOverPreview && utilService.formatDate(mail.sentAt)}
             </span>
 

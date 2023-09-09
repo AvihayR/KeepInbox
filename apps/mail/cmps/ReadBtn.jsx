@@ -1,10 +1,10 @@
 import { mailService } from "../services/mail.service.js"
 
-export function ReadBtn({ mail, onSetMailRead }) {
+export function ReadBtn({ mail, onToggleMailRead }) {
 
     function toggleReadMail(ev) {
         ev.stopPropagation()
-        onSetMailRead()
+        onToggleMailRead()
     }
 
     return (
