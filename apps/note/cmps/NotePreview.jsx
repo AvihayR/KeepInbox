@@ -4,6 +4,7 @@ const { useState } = React
 
 export function NotePreview({ note, setNotes, onUpdateNote }) {
     const [isEditMode, setIsEditMode] = useState(false)
+    const isNewNote = note.isNew
 
     function DynamicCmp() {
         switch (note.type) {
@@ -35,16 +36,18 @@ export function NotePreview({ note, setNotes, onUpdateNote }) {
     }
 
 
+
+
     return (
-        <article className="note-preview">
+        <article className={`note-preview ${isNewNote ? 'note-animation' : ''}`}>
             {note.type === 'NoteTxt' && !isEditMode && (
                 <button className="controls edit-btn" title="Edit note" onClick={handleEditClick}><i className="fa-solid fa-pen"></i></button>
             )}
             {isEditMode ? (
                 <div>
                     <NoteUpdate note={note} setNotes={setNotes} onUpdateNote={onUpdateNote} />
-                    <button onClick={handleSaveEdit}><i className="fa-regular fa-floppy-disk"></i></button>
-                    <button onClick={handleCancelEdit}><i className="fa-solid fa-xmark"></i></button>
+                    <button className="update-btns" onClick={handleSaveEdit}><i className="fa-regular fa-floppy-disk"></i></button>
+                    <button className="update-btns" onClick={handleCancelEdit}><i className="fa-solid fa-xmark"></i></button>
                 </div>
             ) : (
                 <div>
