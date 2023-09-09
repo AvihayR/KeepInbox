@@ -92,6 +92,14 @@
     .app .mail-container {
         margin-inline: 1rem;
     }
+
+    .mail-list-container .filter-container {
+        justify-content: space-between;
+    }
+
+    .mail-list-container .filter-by-text {
+        width: 100%;
+    }
 }
 
 /* SMALL */
