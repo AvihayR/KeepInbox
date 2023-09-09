@@ -1,9 +1,9 @@
 .mail-list-container .mail-list .mail-preview-container {
     display: grid;
-    grid-template-columns: minmax(200px, 12.5vw) 1fr 6fr 1fr;
+    /* grid-template-columns: minmax(200px, 12.5vw) 1fr 6fr 1fr; */
+    /* min-width: 85vw; */
     justify-content: space-between;
     align-items: center;
-    min-width: 85vw;
     padding-block: 7px;
     border-block-end: 0.5px solid #c4c7c5;
     border-inline: 0.5px solid var(--google-light-grey);
@@ -42,6 +42,7 @@
 
 .mail-list-container .mail-list .mail-preview-container:last-of-type {
     border-radius: 0 0 10px 10px;
+    min-width: min(80vw, 1020px);
 }
 
 .mail-list .mail-preview-container span.mail-from {

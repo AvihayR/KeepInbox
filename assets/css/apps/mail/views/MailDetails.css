@@ -1,8 +1,8 @@
 .app .mail-container {
     background-color: var(--google-white);
-    height: 85vh;
+    min-height: 85vh;
     margin-block-start: 1.5rem;
-    margin-inline: 1rem;
+    margin-inline: 2rem;
     border-radius: 1rem;
     padding: 0.5em;
 }
@@ -31,6 +31,10 @@
 
 .app .mail-container pre {
     font-family: 'Roboto', 'GoogleSans', sans-serif;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
     font-size: .875rem;
     font-weight: 400;
 }

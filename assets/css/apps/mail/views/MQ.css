@@ -68,14 +68,48 @@
         gap: 0.6em;
     }
 
+    .app .mail-container .mail-details-header {
+        display: grid;
+        gap: 4px;
+    }
+
+    main.main-mail .compose-mail {
+        position: fixed;
+        right: 2vw;
+        z-index: 100;
+        background-color: white;
+        width: 95%;
+        height: 80%;
+        box-shadow: 11px 5px 40px var(--google-grey);
+    }
+
+    .compose-mail input,
+    .compose-mail textarea {
+        font-size: 1rem;
+        margin-block-start: 0.5em;
+    }
+
+    .app .mail-container {
+        margin-inline: 1rem;
+    }
 }
 
 /* SMALL */
 @media (min-width: 660px) {
+    :root {
+        --mail-compose-width: min(450px, 60%);
+    }
+
     .mail-list-container .mail-list .mail-preview-container {
         grid-template-columns: minmax(50px, auto) minmax(50px, 1fr) minmax(50px, 1fr) 25px;
         grid-template-rows: 25px 25px;
         column-gap: 10px;
+    }
+
+    .mail-list .mail-preview-container span.mail-time {
+        grid-column: -1;
+        grid-row: 1/-1;
+        font-weight: 700;
     }
 
     .mail-list .mail-preview-container .mail-body {
@@ -84,10 +118,6 @@
         margin-inline-start: 0.75em;
     }
 
-    .mail-list .mail-preview-container span.mail-time {
-        grid-column: -1;
-        grid-row: 1/-1;
-    }
 }
 
 /* MEDIUM */
@@ -105,5 +135,11 @@
 
 /* LARGE */
 @media (min-width: 1200px) {
-    /* .mail-list .mail-preview-container */
+    :root {
+        --mail-compose-width: min(380px, 35vw);
+    }
+
+    .mail-list-container {
+        margin-inline: 1.25em;
+    }
 }

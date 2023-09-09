@@ -1,13 +1,14 @@
 main.main-mail .compose-mail {
     position: absolute;
     bottom: 10px;
-    right: 2vw;
+    right: 1vw;
     width: var(--mail-compose-width);
     height: var(--mail-compose-height);
     display: flex;
     flex-direction: column;
     box-shadow: -2px -2px 15px #31313140;
     border-radius: 15px;
+    background-color: white;
 }
 
 main.main-mail .compose-mail .controls {
