@@ -18,9 +18,8 @@ export function MailAside({ mails, setCompose, onSetFilterBy }) {
         onSetFilterBy(prevFilter => ({ ...prevFilter, [field]: value }))
     }
 
-    function onSetIsOverAside(ev) {
-        console.log(ev)
-        setIsOverAside(true)
+    function onSetIsOverAside() {
+        if (window.innerWidth > 660) setIsOverAside(true)
     }
 
     return (
