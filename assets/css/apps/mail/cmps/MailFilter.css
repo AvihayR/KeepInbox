@@ -21,10 +21,13 @@
     color: var(--google-black);
     cursor: pointer;
     padding-inline: 16px;
+    background-color: var(--google-light-cyan);
+    border: 1px solid var(--google-white);
 }
 
 .mail-list-container .filter-by-read:hover {
     color: var(--google-blue);
+    background-color: var(--google-cyan);
 }
 
 .mail-list-container .filter-by-read::after {
