@@ -125,17 +125,6 @@ var demoNotes = [
             backgroundColor: getRandomColor()
         }
     },
-    {
-        id: 'n110',
-        type: 'NoteVideo',
-        isPinned: false,
-        style: {
-            backgroundColor: getRandomColor()
-        },
-        info: {
-            videoUrl: 'https://www.youtube.com/watch?v=6stlCkUDG_s&ab_channel=FreeHDvideos-nocopyright'
-        },
-    }
 ]
  
 _createNotes()

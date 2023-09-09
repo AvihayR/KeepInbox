@@ -51,6 +51,18 @@ export function NoteIndex() {
     }
   }
 
+  const onUpdateNote = (noteId, updatedNote) => {
+    setNotes(prevNotes => {
+      return prevNotes.map(note => {
+        if (note.id === noteId) {
+          noteService.save(updatedNote)
+          return updatedNote
+        }
+        return note
+      })
+    })
+  }
+
   function onDuplicateNote(note) {
 
     const { id, ...duplicatedNote } = note
@@ -70,7 +82,7 @@ export function NoteIndex() {
     <section className="note-index">
       <NoteFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
       <NoteEdit setNotes={setNotes} />
-      <NoteList notes={notes} onDuplicateNote={onDuplicateNote} onPinNote={onPinNote} onRemoveNote={onRemoveNote} onChangeColor={onChangeColor} />
+      <NoteList notes={notes} setNotes={setNotes} onUpdateNote={onUpdateNote} onDuplicateNote={onDuplicateNote} onPinNote={onPinNote} onRemoveNote={onRemoveNote} onChangeColor={onChangeColor} />
     </section>
   )
 }
