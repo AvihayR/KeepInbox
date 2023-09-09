@@ -149,5 +149,6 @@
 
     .mail-list-container {
         margin-inline: 1.25em;
+        max-width: 92vw;
     }
 }

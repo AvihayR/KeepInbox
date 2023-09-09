@@ -67,6 +67,18 @@ button.x-mark:after {
     color: var(--google-yellow);
 }
 
+.read-btn {
+    font-family: fa-regular;
+}
+
+.read-btn::after {
+    content: '\f0e0';
+}
+
+.read-btn.unread::after {
+    content: '\f2b6';
+}
+
 .lower-controls button.mail-send {
     all: unset;
     position: relative;

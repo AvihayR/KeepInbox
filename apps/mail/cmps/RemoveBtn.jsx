@@ -1,7 +1,7 @@
 import { mailService } from "../services/mail.service.js"
 const { useNavigate } = ReactRouterDOM
 
-export function RemoveButton({ mail, setMails, goBack = false }) {
+export function RemoveBtn({ mail, setMails, goBack = false }) {
     const navigate = useNavigate()
 
     function removeMail(ev) {

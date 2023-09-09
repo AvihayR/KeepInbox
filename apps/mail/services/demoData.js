@@ -63,6 +63,7 @@ const demoData = [
         body: "\nNew Updates to\nPoints, Leaderboards, and Ranks\nAt TryHackMe, we always listen to our community and look for ways to improve the platform. As such, we have just introduced some big changes to the way points are awarded and how users are presented on the leaderboard!\n\nFrom today, TryHackMe leaderboards and “Top X%” calculations will only take into account users with more than 100 points.\nIf you have fewer than 100 points, you'll no longer be featured on the leaderboards, and will now see a message on your dashboard to show how many points you need to earn before joining the rankings.\nWith this new update, users will see a more accurate ranking to better reflect their progress in the platform. Unfortunately, this does mean that some users may notice a drop in their rank.\n\nAs always, thank you for being a part of the TryHackMe community!\nLearn more"
         ,
         isRead: false,
+        isStarred: true,
         sentAt: 1551122930594,
         removedAt: null,
         from: 'hello@tryhackme.com',
