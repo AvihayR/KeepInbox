@@ -55,6 +55,7 @@ export function NoteEdit({ setNotes }) {
                 isDrawing = false
             })
         }
+
     }, [selectedNoteType, drawingData])
 
     function loadNote() {
@@ -113,6 +114,8 @@ export function NoteEdit({ setNotes }) {
 
         if (selectedNoteType === "draw") {
             noteToEdit.info.drawingData = drawingData
+            setSelectedNoteType('text')
+
         }
 
         noteService
