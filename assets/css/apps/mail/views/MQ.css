@@ -4,6 +4,7 @@
         grid-template-columns: minmax(50px, auto) minmax(50px, 1fr) minmax(50px, 1fr) 25px;
         grid-template-rows: 25px 25px 25px;
         column-gap: 10px;
+        position: relative;
     }
 
     .mail-list .mail-preview-container .mail-body {
@@ -12,9 +13,13 @@
         margin-inline-start: 0.75em;
     }
 
+    .mail-list .mail-preview-container .mail-from {
+        margin-inline-start: 0.75em;
+    }
+
     .mail-list .mail-preview-container span.mail-time {
         grid-column: -1;
-        grid-row: 1/-1;
+        grid-row: 1;
     }
 
     .mail-list .mail-preview-container .mail-subject {
@@ -24,6 +29,43 @@
         grid-column: 1/-1;
         grid-row: 2;
         margin-inline-start: 0.75em;
+    }
+
+    .mail-preview-container button.star {
+        position: absolute;
+        right: 0.65em;
+        bottom: 2em;
+        font-size: .875rem;
+    }
+
+    .app .main-mail {
+        justify-content: center;
+    }
+
+    .app .main-mail aside {
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5625em;
+        z-index: 10;
+        bottom: 0;
+        width: 100%;
+        margin: 0;
+        background-color: var(--google-white);
+    }
+
+    .main-mail aside .compose {
+        margin: 0;
+        justify-self: start;
+        margin-inline-end: auto;
+        margin-inline-start: 0.875em;
+    }
+
+    .app .main-mail aside ul {
+        display: flex;
+        margin-inline-end: 1em;
+        gap: 0.6em;
     }
 
 }

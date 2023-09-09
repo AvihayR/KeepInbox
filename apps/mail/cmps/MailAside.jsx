@@ -18,9 +18,14 @@ export function MailAside({ mails, setCompose, onSetFilterBy }) {
         onSetFilterBy(prevFilter => ({ ...prevFilter, [field]: value }))
     }
 
+    function onSetIsOverAside(ev) {
+        console.log(ev)
+        setIsOverAside(true)
+    }
+
     return (
         <aside
-            onMouseOver={() => { setIsOverAside(true) }}
+            onMouseOver={onSetIsOverAside}
             onMouseLeave={() => { setIsOverAside(false) }}
         >
             <button className="compose" title="Compose a new message" onClick={() => { setCompose(isCompose => !isCompose) }}>
